@@ -41,7 +41,8 @@ namespace SapCleaner
 
             var results = new List<SearchResult>();
 
-            int currentFolder = 0;
+            long currentFolder = 0;
+            long totalFolderCount = folders.Count;
             while (folders.Count > 0)
             {
                 var path = folders.Dequeue();
@@ -58,11 +59,12 @@ namespace SapCleaner
                 foreach (var folder in path.GetDirectoriesSafe())
                 {
                     folders.Enqueue(folder);
+                    totalFolderCount++;
                 }
 
                 currentFolder++;
 
-                int progress = Math.Max(0, Math.Min(100, (int)(currentFolder / (float)parameters.TotalFolderCount * 100f)));
+                int progress = Math.Max(0, Math.Min(100, (int)(currentFolder / (float)totalFolderCount * 100f)));
                 Worker.ReportProgress(progress, currentFolderResults);
             }
 

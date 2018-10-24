@@ -9,7 +9,6 @@ namespace SapCleaner
         public IEnumerable<DirectoryInfo> SearchFolders { get; private set; }
         public string SearchPattern { get; private set; }
         public HashSet<string> ExtensionsToKeep { get; private set; }
-        public long TotalFolderCount { get; private set; }
 
         public SearchParameters(IEnumerable<DirectoryInfo> searchFolders, string searchPattern, string[] extensionsToKeep)
         {
@@ -22,11 +21,6 @@ namespace SapCleaner
                     ExtensionsToKeep.Add(extension);
                 else
                     ExtensionsToKeep.Add("." + extension);
-            }
-
-            foreach (var path in searchFolders)
-            {
-                TotalFolderCount += path.GetDirectoriesSafe().Count;
             }
         }
     }
