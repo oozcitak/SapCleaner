@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Manina.Windows.Forms;
 
 namespace SapCleaner
 {
@@ -10,6 +11,8 @@ namespace SapCleaner
         public MainForm()
         {
             InitializeComponent();
+
+            SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
 
             Application.Idle += Application_Idle;
         }
@@ -30,6 +33,7 @@ namespace SapCleaner
             searcher.SearchCompleted += Searcher_SearchCompleted;
 
             DriveList.Enabled = false;
+            SearchResultList.Enabled = false;
             AnalyzeButton.Enabled = false;
             SearchProgress.Minimum = 0;
             SearchProgress.Maximum = 100;
@@ -44,6 +48,7 @@ namespace SapCleaner
         private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             DriveList.Enabled = true;
+            SearchResultList.Enabled = true;
             AnalyzeButton.Enabled = true;
             SearchProgress.Visible = false;
         }
@@ -53,9 +58,8 @@ namespace SapCleaner
             SearchProgress.Value = e.ProgressPercentage;
             foreach (var result in e.UserState as List<SearchResult>)
             {
-                ListViewItem item = new ListViewItem(result.SourceFile.Name);
-                item.SubItems.Add(result.SourceFile.DirectoryName);
-                item.SubItems.Add(string.Format("{0} ({1} dosya)", Utility.ByteSizeToString(result.TotalFileSize), result.AssociatedFiles.Count));
+                ImageListViewItem item = new ImageListViewItem(result.SourceFile.FullName);
+                item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count));
                 item.Tag = result;
                 SearchResultList.Items.Add(item);
             }
@@ -68,7 +72,7 @@ namespace SapCleaner
             SearchProgress.Value = 0;
             SearchProgress.Visible = true;
 
-            foreach (ListViewItem item in SearchResultList.Items)
+            foreach (ImageListViewItem item in SearchResultList.Items)
             {
                 var result = item.Tag as SearchResult;
                 foreach (var file in result.AssociatedFiles)
@@ -81,16 +85,12 @@ namespace SapCleaner
             SearchProgress.Visible = false;
         }
 
-        private void SearchResultList_DoubleClick(object sender, EventArgs e)
+        private void SearchResultList_ItemDoubleClick(object sender, ItemClickEventArgs e)
         {
-            if (SearchResultList.SelectedItems.Count > 0)
+            using (var detailForm = new ItemDetailsForm())
             {
-                var result = SearchResultList.SelectedItems[0].Tag as SearchResult;
-                using (var detailForm = new ItemDetailsForm())
-                {
-                    detailForm.SetItem(result);
-                    detailForm.ShowDialog();
-                }
+                detailForm.SetItem(e.Item.Tag as SearchResult);
+                detailForm.ShowDialog();
             }
         }
     }

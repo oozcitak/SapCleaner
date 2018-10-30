@@ -219,7 +219,7 @@ namespace SapCleaner
                         rt.Offset(0, 1.2f * lineHeight);
                         using (Brush bItemDetails = new SolidBrush(ImageListView.Colors.PaneLabelColor))
                         {
-                            string driveSpace = string.Format("{0} free, {1} total", Utility.ByteSizeToString(drive.TotalFreeSpace), Utility.ByteSizeToString(drive.TotalSize));
+                            string driveSpace = string.Format("{0} free, {1} total", Manina.Windows.Forms.Utility.FormatSize(drive.TotalFreeSpace), Manina.Windows.Forms.Utility.FormatSize(drive.TotalSize));
                             g.DrawString(driveSpace, ImageListView.Font, bItemDetails, rt, sf);
                         }
                     }

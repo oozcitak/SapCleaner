@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Manina.Windows.Forms;
 
 namespace SapCleaner
 {
@@ -7,12 +8,12 @@ namespace SapCleaner
     {
         public void SetItem(SearchResult result)
         {
-            FilenameLabel.Text = result.SourceFile.Name;
+            Text = result.SourceFile.Name;
+            DetailsLabel.Text = string.Format("{0} adet analiz dosyası toplam {1} yer kaplamaktadır.", result.AssociatedFiles.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
 
             foreach (var file in result.AssociatedFiles)
             {
-                ListViewItem item = new ListViewItem(file.Name);
-                item.SubItems.Add(Utility.ByteSizeToString(file.Length));
+                var item = new ImageListViewItem(file.FullName);
                 AssociatedFileList.Items.Add(item);
             }
         }
@@ -20,6 +21,8 @@ namespace SapCleaner
         public ItemDetailsForm()
         {
             InitializeComponent();
+
+            AssociatedFileList.SetRenderer(new ImageListViewRenderers.ThemeRenderer());
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ImageListView, Version=11.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageListView.11.2.0\lib\net35\ImageListView.dll</HintPath>
+    <Reference Include="ImageListView, Version=13.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageListView.13.0.0\lib\net35\ImageListView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchParameters.cs" />
     <Compile Include="SearchResult.cs" />
-    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="ItemDetailsForm.resx">
       <DependentUpon>ItemDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
