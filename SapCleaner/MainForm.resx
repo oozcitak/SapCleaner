@@ -117,4 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Analiz dosyalarının aranacağı klasörü ve analiz dosyaları aranacak programları seçin. İleri düğmesinin tıkladığınızda arama işlemi başlayacaktır. Aranan alt klasör sayısına bağlı olarak bu işlem uzun zaman alabilir.</value>
+  </data>
+  <metadata name="SearchFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHVfEeANFud8EQrz/A0W54wNF
+        uHoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGlfDgSVkyfshd+b/BXnq/wFk
+        3f8ETb39A0W4egAAAAAshthwLYjYpy2H2OstiNj3LYjY9y2I2PctiNj3LYjY9wdMvP9jnfT/GH///wB2
+        +P8Adu7/A2jh/wNFueUAAAAAM47Z59zw+vGn3fT9ntv0/5ba8/+O2PP/htfz/3/U8v8EQ7z/rs3+////
+        /////////////xh/7/8EQrz/AAAAADWU2vfv+v7/oen5/5Hl+P+B4ff/ct72/2Pa9f9U1/T/DFfB/421
+        9v9Nkv//EXf//yGG//9Aiuv/A0S53wAAAAA2mtr58vr9/7Pt+v+k6fn/leb4/4Xi9/923vb/Zdv1/zyb
+        3v84ddL/jbX3/7jW/v9yqPX/LWzL/wRDumwAAAAANqHa+fb8/v/I8vz/ue/7/6zs+v+c6Pn/i+P3/3zg
+        9v9s3Pb/P5ze/xZdxv8EQ7z/GlnB/x10yvsAAAAAAAAAADem2vv+////+P3///b9///1/P//8/z+/9j2
+        /P+U5vj/heP3/3bf9v9o2/X/XNj0/9f0/P81pNr3AAAAAAAAAAA1q9r76Pb7/5TU7/+Izu7/c8Hp/8np
+        9v/y/P7/8/z+//L8/v/w/P7/7/v+/+77/v/+////Nqva9wAAAAAAAAAANqra8/H6/f+U3vX/k9z0/4HV
+        8v9qyu3/bMvq/4XT7/+A0u//etDv/3bP7v9yz+7/6ff7/zSu2vMAAAAAAAAAADWv2vH3/P7/juT4/5He
+        9f+f4PX/rOH2/+/7/v/0/f7/8/z+//H8/v/v+/7/7vv+//r9//k2r9rVAAAAAAAAAAA2s9r5/f7+//7/
+        ///+/v///f7///7////q9/v/a8fk+WvH4/lrx+P5a8fj+XnN5vd0yuXhMrHZVgAAAAAAAAAANLTZ0V7C
+        4ftgw+L7YMPi+2DD4vtfw+L7PLbb3Syy2BYsstgOLLLYDiyy2A4sstgOLLPYDiyz2AQAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA/8EAAP+AAACAAAAAgAAAAIAAAACAAAAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAP//
+        AAD//wAA//8AAA==
+</value>
+  </data>
 </root>

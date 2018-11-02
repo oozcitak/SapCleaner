@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace SapCleaner
 {
@@ -22,6 +24,24 @@ namespace SapCleaner
             Worker.DoWork += Worker_DoWork;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+        }
+
+        public FileSearcher(IEnumerable<string> searchPaths, string searchPattern, string[] extensionsToKeep)
+            : this(searchPaths.Select(p => new DirectoryInfo(p)), searchPattern, extensionsToKeep)
+        {
+            ;
+        }
+
+        public FileSearcher(DirectoryInfo searchFolder, string searchPattern, string[] extensionsToKeep)
+            : this(new DirectoryInfo[] { searchFolder }, searchPattern, extensionsToKeep)
+        {
+            ;
+        }
+
+        public FileSearcher(string searchPath, string searchPattern, string[] extensionsToKeep)
+            : this(new DirectoryInfo(searchPath), searchPattern, extensionsToKeep)
+        {
+            ;
         }
 
         public void StartSearch()
@@ -50,9 +70,12 @@ namespace SapCleaner
                 var currentFolderResults = new List<SearchResult>();
                 foreach (var file in path.GetFilesSafe(parameters.SearchPattern))
                 {
-                    var result = new SearchResult(file, parameters.ExtensionsToKeep);
-                    if (result.AssociatedFiles.Count > 0)
-                        currentFolderResults.Add(result);
+                    if (IsSapFile(file.FullName))
+                    {
+                        var result = new SearchResult(file, parameters.ExtensionsToKeep);
+                        if (result.AssociatedFiles.Count > 0)
+                            currentFolderResults.Add(result);
+                    }
                 }
                 results.AddRange(currentFolderResults);
 
@@ -74,6 +97,23 @@ namespace SapCleaner
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             OnProgressChanged(e);
+        }
+
+        private bool IsSapFile(string filename)
+        {
+            try
+            {
+                using (var file = new FileStream(filename, FileMode.Open))
+                using (var reader = new BinaryReader(file))
+                {
+                    var bytes = reader.ReadBytes(7);
+                    return (Encoding.ASCII.GetString(bytes) == "SAP2000");
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

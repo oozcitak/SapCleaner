@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using Manina.Windows.Forms;
 
@@ -8,49 +7,113 @@ namespace SapCleaner
 {
     public partial class MainForm : Form
     {
+        private Panel[] Pages { get; set; }
+        private int CurrentPage { get; set; }
+
+        private long totalFiles = 0;
+        private long totalSize = 0;
+
         public MainForm()
         {
             InitializeComponent();
 
+            Pages = new Panel[] { WizardPage1, WizardPage2, WizardPage3, WizardPage4, WizardPage5 };
+            CurrentPage = 0;
+            UpdatePages();
+            foreach (var page in Pages)
+                page.SetBounds(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Height - 52);
+            Size = new System.Drawing.Size(390, 475);
+
             SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
-
-            Application.Idle += Application_Idle;
         }
 
-        private string[] extensionsToKeep = new string[] { "sdb", "$2k", "sbk", "log", "out", "txt", "dwg", "doc", "docx", "xls", "xlsx", "pdf" };
-
-
-        private void Application_Idle(object sender, EventArgs e)
+        private void NextPage()
         {
-            AnalyzeButton.Enabled = DriveList.SelectedDrives.Length > 0;
-            CleanButton.Enabled = SearchResultList.Items.Count > 0;
+            CurrentPage++;
+            CurrentPage = Math.Max(0, Math.Min(Pages.Length - 1, CurrentPage));
+            UpdatePages();
+            ProcessPage();
         }
 
-        private void AnalyzeButton_Click(object sender, EventArgs e)
+        private void UpdatePages()
         {
-            FileSearcher searcher = new FileSearcher(DriveList.SelectedDrives.Select(p => p.RootDirectory), "*.sdb", extensionsToKeep);
-            searcher.ProgressChanged += Searcher_ProgressChanged;
-            searcher.SearchCompleted += Searcher_SearchCompleted;
+            int i = 0;
+            foreach (var page in Pages)
+            {
+                page.Visible = (i == CurrentPage);
+                i++;
+            }
 
-            DriveList.Enabled = false;
-            SearchResultList.Enabled = false;
-            AnalyzeButton.Enabled = false;
-            SearchProgress.Minimum = 0;
-            SearchProgress.Maximum = 100;
-            SearchProgress.Value = 0;
-            SearchProgress.Visible = true;
-            Width = 956;
-            SearchResultList.Items.Clear();
-
-            searcher.StartSearch();
+            NextButton.Enabled = HasNextPage;
         }
 
-        private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private bool HasNextPage => CurrentPage < Pages.Length - 1;
+
+        private void DisableButtons()
         {
-            DriveList.Enabled = true;
-            SearchResultList.Enabled = true;
-            AnalyzeButton.Enabled = true;
-            SearchProgress.Visible = false;
+            NextButton.Enabled = false;
+            CloseButton.Enabled = false;
+        }
+
+        private void EnableButtons()
+        {
+            NextButton.Enabled = HasNextPage;
+            CloseButton.Enabled = true;
+        }
+
+        private void ProcessPage()
+        {
+            if (CurrentPage == 1)
+            {
+                FileSearcher searcher = new FileSearcher(new System.IO.DirectoryInfo(SearchFolder.Path), "*.sdb", extensionsToKeep);
+                searcher.ProgressChanged += Searcher_ProgressChanged;
+                searcher.SearchCompleted += Searcher_SearchCompleted;
+
+                SearchProgress.Minimum = 0;
+                SearchProgress.Maximum = 100;
+                SearchProgress.Value = 0;
+                SearchResultList.Items.Clear();
+                SearchFileLabel.Text = "";
+
+                DisableButtons();
+                totalFiles = 0;
+                totalSize = 0;
+                searcher.StartSearch();
+            }
+            else if (CurrentPage == 3)
+            {
+                DeleteProgress.Minimum = 0;
+                DeleteProgress.Maximum = SearchResultList.Items.Count > 0 ? SearchResultList.Items.Count : 1;
+                DeleteProgress.Value = 0;
+                DeleteFileLabel.Text = "";
+
+                DisableButtons();
+                long deletedFiles = 0;
+                long deletedSize = 0;
+                foreach (ImageListViewItem item in SearchResultList.Items)
+                {
+                    var result = item.Tag as SearchResult;
+                    foreach (var file in result.AssociatedFiles)
+                    {
+                        if (DeleteAnalysisFiles.Checked)
+                        {
+                            deletedFiles++;
+                            deletedSize += file.Length;
+
+                            // Delete file
+                            DeleteFile(file.FullName, UseRecycleBin.Checked);
+                        }
+                    }
+                    DeleteFileLabel.Text = result.SourceFile.Name;
+                    DeleteProgress.Value++;
+                }
+
+                SearchResultList.Items.Clear();
+                DeleteResultLabel.Text = string.Format("{0} dosya silindi. {1} yer kazanıldı.", deletedFiles, Manina.Windows.Forms.Utility.FormatSize(deletedSize));
+
+                NextPage();
+                EnableButtons();
+            }
         }
 
         private void Searcher_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -62,27 +125,23 @@ namespace SapCleaner
                 item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count));
                 item.Tag = result;
                 SearchResultList.Items.Add(item);
+                SearchFileLabel.Text = result.SourceFile.Name;
+
+                totalFiles += result.AssociatedFiles.Count;
+                totalSize += result.TotalFileSize;
             }
         }
 
-        private void CleanButton_Click(object sender, EventArgs e)
+        private string[] extensionsToKeep = new string[] { "sdb", "$2k", "sbk", "log", "out", "txt", "dwg", "doc", "docx", "xls", "xlsx", "pdf" };
+
+        private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            SearchProgress.Minimum = 0;
-            SearchProgress.Maximum = SearchResultList.Items.Count > 0 ? SearchResultList.Items.Count : 1;
-            SearchProgress.Value = 0;
-            SearchProgress.Visible = true;
+            SearchFileLabel.Text = "";
+            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
-            foreach (ImageListViewItem item in SearchResultList.Items)
-            {
-                var result = item.Tag as SearchResult;
-                foreach (var file in result.AssociatedFiles)
-                {
-                    System.Diagnostics.Debug.Print(file.Name);
-                }
-            }
-
-            SearchResultList.Items.Clear();
-            SearchProgress.Visible = false;
+            NextPage();
+            EnableButtons();
+            NextButton.Enabled = false;
         }
 
         private void SearchResultList_ItemDoubleClick(object sender, ItemClickEventArgs e)
@@ -91,6 +150,54 @@ namespace SapCleaner
             {
                 detailForm.SetItem(e.Item.Tag as SearchResult);
                 detailForm.ShowDialog();
+            }
+        }
+
+        private void SearchFolder_Click(object sender, EventArgs e)
+        {
+            SearchFolderBrowserDialog.SelectedPath = SearchFolder.Path;
+            if (SearchFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                SearchFolder.Path = SearchFolderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            NextPage();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void DeleteAnalysisFiles_CheckedChanged(object sender, EventArgs e)
+        {
+            NextButton.Enabled = DeleteAnalysisFiles.Checked;
+        }
+
+        private void DeleteFile(string path, bool sendToRecycleBin)
+        {
+            try
+            {
+                if (sendToRecycleBin)
+                {
+                    var fs = new Shell32.SHFILEOPSTRUCT();
+                    fs.wFunc = Shell32.FileOperationType.FO_DELETE;
+                    fs.pFrom = path + '\0' + '\0';
+                    fs.fFlags = Shell32.FileOperationFlags.FOF_SILENT | Shell32.FileOperationFlags.FOF_NOCONFIRMATION |
+                        Shell32.FileOperationFlags.FOF_NOERRORUI | Shell32.FileOperationFlags.FOF_SILENT;
+                    Shell32.SHFileOperation(ref fs);
+                }
+                else
+                {
+                    System.IO.File.Delete(path);
+                }
+            }
+            catch
+            {
+                ;
             }
         }
     }
