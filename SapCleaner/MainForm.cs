@@ -44,27 +44,14 @@ namespace SapCleaner
                 i++;
             }
 
-            NextButton.Enabled = HasNextPage;
-        }
-
-        private bool HasNextPage => CurrentPage < Pages.Length - 1;
-
-        private void DisableButtons()
-        {
-            NextButton.Enabled = false;
-            CloseButton.Enabled = false;
-        }
-
-        private void EnableButtons()
-        {
-            NextButton.Enabled = HasNextPage;
-            CloseButton.Enabled = true;
+            NextButton.Enabled = true;
         }
 
         private void ProcessPage()
         {
             if (CurrentPage == 1)
             {
+                string[] extensionsToKeep = new string[] { "sdb", "$2k", "s2k", "sbk", "log", "out", "txt", "dwg", "doc", "docx", "xls", "xlsx", "pdf" };
                 FileSearcher searcher = new FileSearcher(new System.IO.DirectoryInfo(SearchFolder.Path), "*.sdb", extensionsToKeep);
                 searcher.ProgressChanged += Searcher_ProgressChanged;
                 searcher.SearchCompleted += Searcher_SearchCompleted;
@@ -75,7 +62,7 @@ namespace SapCleaner
                 SearchResultList.Items.Clear();
                 SearchFileLabel.Text = "";
 
-                DisableButtons();
+                NextButton.Enabled = false;
                 totalFiles = 0;
                 totalSize = 0;
                 searcher.StartSearch();
@@ -87,7 +74,7 @@ namespace SapCleaner
                 DeleteProgress.Value = 0;
                 DeleteFileLabel.Text = "";
 
-                DisableButtons();
+                NextButton.Enabled = false;
                 long deletedFiles = 0;
                 long deletedSize = 0;
                 foreach (ImageListViewItem item in SearchResultList.Items)
@@ -110,9 +97,10 @@ namespace SapCleaner
 
                 SearchResultList.Items.Clear();
                 DeleteResultLabel.Text = string.Format("{0} dosya silindi. {1} yer kazanıldı.", deletedFiles, Manina.Windows.Forms.Utility.FormatSize(deletedSize));
+                NextButton.Text = "Kapat";
 
                 NextPage();
-                EnableButtons();
+                NextButton.Enabled = true;
             }
         }
 
@@ -132,15 +120,12 @@ namespace SapCleaner
             }
         }
 
-        private string[] extensionsToKeep = new string[] { "sdb", "$2k", "sbk", "log", "out", "txt", "dwg", "doc", "docx", "xls", "xlsx", "pdf" };
-
         private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             SearchFileLabel.Text = "";
             SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
             NextPage();
-            EnableButtons();
             NextButton.Enabled = false;
         }
 
@@ -164,12 +149,14 @@ namespace SapCleaner
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            NextPage();
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
+            if (CurrentPage == 4)
+            {
+                Close();
+            }
+            else
+            {
+                NextPage();
+            }
         }
 
         private void DeleteAnalysisFiles_CheckedChanged(object sender, EventArgs e)

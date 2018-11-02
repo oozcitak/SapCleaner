@@ -34,7 +34,6 @@
             Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Custom, "assoc_files", "Boyut", 60, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
-            this.CloseButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
             this.WizardPage1 = new System.Windows.Forms.Panel();
             this.SearchLarsaFiles = new System.Windows.Forms.CheckBox();
@@ -43,23 +42,23 @@
             this.SearchSapFiles = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.WizardPage2 = new System.Windows.Forms.Panel();
+            this.SearchFileLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.WizardPage3 = new System.Windows.Forms.Panel();
+            this.UseRecycleBin = new System.Windows.Forms.CheckBox();
+            this.DeleteAnalysisFiles = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SearchResultLabel = new System.Windows.Forms.Label();
             this.SearchResultList = new Manina.Windows.Forms.ImageListView();
             this.WizardPage4 = new System.Windows.Forms.Panel();
+            this.DeleteFileLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DeleteProgress = new System.Windows.Forms.ProgressBar();
             this.WizardPage5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.DeleteResultLabel = new System.Windows.Forms.Label();
             this.SearchFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.SearchFileLabel = new System.Windows.Forms.Label();
-            this.DeleteFileLabel = new System.Windows.Forms.Label();
             this.SearchFolder = new SapCleaner.FileSystemLabel();
-            this.DeleteAnalysisFiles = new System.Windows.Forms.CheckBox();
-            this.UseRecycleBin = new System.Windows.Forms.CheckBox();
             this.WizardPage1.SuspendLayout();
             this.WizardPage2.SuspendLayout();
             this.WizardPage3.SuspendLayout();
@@ -84,17 +83,6 @@
             this.NextButton.Text = "İleri >";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CloseButton.Location = new System.Drawing.Point(12, 401);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(75, 23);
-            this.CloseButton.TabIndex = 6;
-            this.CloseButton.Text = "Kapat";
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // Separator
             // 
@@ -193,6 +181,17 @@
             this.WizardPage2.Size = new System.Drawing.Size(353, 352);
             this.WizardPage2.TabIndex = 1;
             // 
+            // SearchFileLabel
+            // 
+            this.SearchFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchFileLabel.AutoEllipsis = true;
+            this.SearchFileLabel.Location = new System.Drawing.Point(15, 93);
+            this.SearchFileLabel.Name = "SearchFileLabel";
+            this.SearchFileLabel.Size = new System.Drawing.Size(319, 46);
+            this.SearchFileLabel.TabIndex = 2;
+            this.SearchFileLabel.Text = "#SEARCHFILE#";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -217,6 +216,31 @@
             this.WizardPage3.Name = "WizardPage3";
             this.WizardPage3.Size = new System.Drawing.Size(353, 352);
             this.WizardPage3.TabIndex = 2;
+            // 
+            // UseRecycleBin
+            // 
+            this.UseRecycleBin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.UseRecycleBin.AutoSize = true;
+            this.UseRecycleBin.Checked = true;
+            this.UseRecycleBin.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UseRecycleBin.Location = new System.Drawing.Point(18, 313);
+            this.UseRecycleBin.Name = "UseRecycleBin";
+            this.UseRecycleBin.Size = new System.Drawing.Size(166, 17);
+            this.UseRecycleBin.TabIndex = 4;
+            this.UseRecycleBin.Text = "Geri dönüşüm kutusuna kaldır";
+            this.UseRecycleBin.UseVisualStyleBackColor = true;
+            // 
+            // DeleteAnalysisFiles
+            // 
+            this.DeleteAnalysisFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteAnalysisFiles.AutoSize = true;
+            this.DeleteAnalysisFiles.Location = new System.Drawing.Point(18, 290);
+            this.DeleteAnalysisFiles.Name = "DeleteAnalysisFiles";
+            this.DeleteAnalysisFiles.Size = new System.Drawing.Size(118, 17);
+            this.DeleteAnalysisFiles.TabIndex = 3;
+            this.DeleteAnalysisFiles.Text = "Analiz dosyalarını sil";
+            this.DeleteAnalysisFiles.UseVisualStyleBackColor = true;
+            this.DeleteAnalysisFiles.CheckedChanged += new System.EventHandler(this.DeleteAnalysisFiles_CheckedChanged);
             // 
             // label3
             // 
@@ -268,7 +292,7 @@
             this.SearchResultList.Location = new System.Drawing.Point(18, 73);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
-            this.SearchResultList.PersistentCacheSize = ((long)(100));
+            this.SearchResultList.PersistentCacheSize = (100);
             this.SearchResultList.ShowCheckBoxes = true;
             this.SearchResultList.ShowFileIcons = true;
             this.SearchResultList.Size = new System.Drawing.Size(317, 165);
@@ -291,6 +315,17 @@
             this.WizardPage4.Size = new System.Drawing.Size(353, 352);
             this.WizardPage4.TabIndex = 3;
             // 
+            // DeleteFileLabel
+            // 
+            this.DeleteFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteFileLabel.AutoEllipsis = true;
+            this.DeleteFileLabel.Location = new System.Drawing.Point(18, 93);
+            this.DeleteFileLabel.Name = "DeleteFileLabel";
+            this.DeleteFileLabel.Size = new System.Drawing.Size(316, 80);
+            this.DeleteFileLabel.TabIndex = 2;
+            this.DeleteFileLabel.Text = "#DELETEFILE#";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -309,9 +344,9 @@
             // 
             // WizardPage5
             // 
-            this.WizardPage5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WizardPage5.Anchor = (System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+            | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right);
             this.WizardPage5.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage5.Controls.Add(this.label5);
             this.WizardPage5.Controls.Add(this.DeleteResultLabel);
@@ -339,28 +374,6 @@
             this.DeleteResultLabel.TabIndex = 1;
             this.DeleteResultLabel.Text = "#DELETERESULT#";
             // 
-            // SearchFileLabel
-            // 
-            this.SearchFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchFileLabel.AutoEllipsis = true;
-            this.SearchFileLabel.Location = new System.Drawing.Point(15, 93);
-            this.SearchFileLabel.Name = "SearchFileLabel";
-            this.SearchFileLabel.Size = new System.Drawing.Size(319, 46);
-            this.SearchFileLabel.TabIndex = 2;
-            this.SearchFileLabel.Text = "#SEARCHFILE#";
-            // 
-            // DeleteFileLabel
-            // 
-            this.DeleteFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteFileLabel.AutoEllipsis = true;
-            this.DeleteFileLabel.Location = new System.Drawing.Point(18, 93);
-            this.DeleteFileLabel.Name = "DeleteFileLabel";
-            this.DeleteFileLabel.Size = new System.Drawing.Size(316, 80);
-            this.DeleteFileLabel.TabIndex = 2;
-            this.DeleteFileLabel.Text = "#DELETEFILE#";
-            // 
             // SearchFolder
             // 
             this.SearchFolder.Location = new System.Drawing.Point(18, 93);
@@ -370,31 +383,6 @@
             this.SearchFolder.TabIndex = 1;
             this.SearchFolder.Text = "SearchFolder";
             this.SearchFolder.Click += new System.EventHandler(this.SearchFolder_Click);
-            // 
-            // DeleteAnalysisFiles
-            // 
-            this.DeleteAnalysisFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteAnalysisFiles.AutoSize = true;
-            this.DeleteAnalysisFiles.Location = new System.Drawing.Point(18, 290);
-            this.DeleteAnalysisFiles.Name = "DeleteAnalysisFiles";
-            this.DeleteAnalysisFiles.Size = new System.Drawing.Size(118, 17);
-            this.DeleteAnalysisFiles.TabIndex = 3;
-            this.DeleteAnalysisFiles.Text = "Analiz dosyalarını sil";
-            this.DeleteAnalysisFiles.UseVisualStyleBackColor = true;
-            this.DeleteAnalysisFiles.CheckedChanged += new System.EventHandler(this.DeleteAnalysisFiles_CheckedChanged);
-            // 
-            // UseRecycleBin
-            // 
-            this.UseRecycleBin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UseRecycleBin.AutoSize = true;
-            this.UseRecycleBin.Checked = true;
-            this.UseRecycleBin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UseRecycleBin.Location = new System.Drawing.Point(18, 313);
-            this.UseRecycleBin.Name = "UseRecycleBin";
-            this.UseRecycleBin.Size = new System.Drawing.Size(166, 17);
-            this.UseRecycleBin.TabIndex = 4;
-            this.UseRecycleBin.Text = "Geri dönüşüm kutusuna kaldır";
-            this.UseRecycleBin.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -407,10 +395,11 @@
             this.Controls.Add(this.WizardPage2);
             this.Controls.Add(this.WizardPage1);
             this.Controls.Add(this.Separator);
-            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.NextButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(390, 475);
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Analiz Dosyası Temizleyici";
             this.WizardPage1.ResumeLayout(false);
             this.WizardPage1.PerformLayout();
@@ -430,7 +419,6 @@
         private System.Windows.Forms.ProgressBar SearchProgress;
         private Manina.Windows.Forms.ImageListView SearchResultList;
         private System.Windows.Forms.Button NextButton;
-        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Label Separator;
         private System.Windows.Forms.Panel WizardPage1;
         private System.Windows.Forms.Label label1;

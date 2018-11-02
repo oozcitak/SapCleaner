@@ -113,7 +113,7 @@ namespace SapCleaner
                 shItem.GetDisplayName(Shell32.SIGDN.FILESYSPATH, out var ptrFull);
                 fullName = Marshal.PtrToStringAuto(ptrFull);
                 ((Shell32.IShellItemImageFactory)shItem).GetImage(new Shell32.SIZE(thumbnailSize.Width, thumbnailSize.Height), Shell32.SIIGBF.NONE, out var hbitmap);
-                icon = ConvertPixelByPixel(hbitmap);
+                icon = ConvertToAlphaBitmap(Bitmap.FromHbitmap(hbitmap));
             }
             else
             {
@@ -254,37 +254,33 @@ namespace SapCleaner
             return new Rectangle((int)r.Left, (int)r.Top, (int)r.Width, (int)r.Height);
         }
 
-        private Bitmap ConvertPixelByPixel(IntPtr hBitmap)
+        private Bitmap ConvertToAlphaBitmap(Bitmap source)
         {
-            // get the info about the HBITMAP inside the IPictureDisp
-            Gdi32.DIBSECTION dibsection = new Gdi32.DIBSECTION();
-            Gdi32.GetObjectDIBSection(hBitmap, Marshal.SizeOf(dibsection), ref dibsection);
+            Bitmap result = new Bitmap(source.Width, source.Height, PixelFormat.Format32bppArgb);
 
-            // create the destination Bitmap object
-            Bitmap bitmap = new Bitmap(dibsection.dsBm.bmWidth, dibsection.dsBm.bmHeight, PixelFormat.Format32bppArgb);
-
-            unsafe
+            BitmapData sourceData = null;
+            BitmapData resultData = null;
+            try
             {
-                // get a pointer to the raw bits
-                Gdi32.RGBQUAD* pBits = (Gdi32.RGBQUAD*)(void*)dibsection.dsBm.bmBits;
+                sourceData = source.LockBits(new Rectangle(0, 0, source.Width, source.Height), ImageLockMode.ReadOnly, source.PixelFormat);
+                resultData = result.LockBits(new Rectangle(0, 0, result.Width, result.Height), ImageLockMode.WriteOnly, result.PixelFormat);
 
-                // copy each pixel manually
-                for (int x = 0; x < dibsection.dsBmih.biWidth; x++)
+                for (int y = 0; y <= sourceData.Height - 1; y++)
                 {
-                    for (int y = 0; y < dibsection.dsBmih.biHeight; y++)
+                    for (int x = 0; x <= sourceData.Width - 1; x++)
                     {
-                        int offset = y * dibsection.dsBmih.biWidth + x;
-                        if (pBits[offset].rgbReserved != 0)
-                        {
-                            bitmap.SetPixel(x, y, Color.FromArgb(pBits[offset].rgbReserved, pBits[offset].rgbRed, pBits[offset].rgbGreen, pBits[offset].rgbBlue));
-                        }
+                        int color = Marshal.ReadInt32(sourceData.Scan0, (sourceData.Stride * y) + (4 * x));
+                        Marshal.WriteInt32(resultData.Scan0, (resultData.Stride * y) + (4 * x), color);
                     }
                 }
             }
+            finally
+            {
+                result.UnlockBits(resultData);
+                source.UnlockBits(sourceData);
+            }
 
-            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
-            return bitmap;
+            return result;
         }
 
         protected override void OnPaint(PaintEventArgs e)
