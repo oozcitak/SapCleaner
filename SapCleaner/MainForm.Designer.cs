@@ -163,7 +163,7 @@
             // 
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 65);
+            this.label1.Size = new System.Drawing.Size(318, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -292,7 +292,7 @@
             this.SearchResultList.Location = new System.Drawing.Point(18, 73);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
-            this.SearchResultList.PersistentCacheSize = (100);
+            this.SearchResultList.PersistentCacheSize = ((long)(100));
             this.SearchResultList.ShowCheckBoxes = true;
             this.SearchResultList.ShowFileIcons = true;
             this.SearchResultList.Size = new System.Drawing.Size(317, 165);
@@ -344,9 +344,9 @@
             // 
             // WizardPage5
             // 
-            this.WizardPage5.Anchor = (System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
-            | System.Windows.Forms.AnchorStyles.Left
-            | System.Windows.Forms.AnchorStyles.Right);
+            this.WizardPage5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WizardPage5.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage5.Controls.Add(this.label5);
             this.WizardPage5.Controls.Add(this.DeleteResultLabel);
