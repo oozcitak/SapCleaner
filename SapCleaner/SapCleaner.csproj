@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileSystemControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileSystemControls.1.0.0\lib\net35\FileSystemControls.dll</HintPath>
+    </Reference>
     <Reference Include="ImageListView, Version=13.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageListView.13.0.0\lib\net35\ImageListView.dll</HintPath>
     </Reference>
@@ -52,9 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileSearcher.cs" />
-    <Compile Include="FileSystemLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="IOExtensions.cs" />
     <Compile Include="ItemDetailsForm.cs">
       <SubType>Form</SubType>
@@ -107,4 +107,8 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

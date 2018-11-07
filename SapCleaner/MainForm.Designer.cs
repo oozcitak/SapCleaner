@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 70, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Klasör", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Custom, "assoc_files", "Boyut", 60, 2, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader4 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 70, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader5 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Klasör", 160, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader6 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Custom, "assoc_files", "Boyut", 60, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DeleteResultLabel = new System.Windows.Forms.Label();
             this.SearchFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.SearchFolder = new SapCleaner.FileSystemLabel();
+            this.SearchFolder = new Manina.Windows.Forms.FileSystemButton();
             this.WizardPage1.SuspendLayout();
             this.WizardPage2.SuspendLayout();
             this.WizardPage3.SuspendLayout();
@@ -100,11 +100,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WizardPage1.BackColor = System.Drawing.SystemColors.Window;
+            this.WizardPage1.Controls.Add(this.SearchFolder);
             this.WizardPage1.Controls.Add(this.SearchLarsaFiles);
             this.WizardPage1.Controls.Add(this.SearchSafeFiles);
             this.WizardPage1.Controls.Add(this.SearchEtabsFiles);
             this.WizardPage1.Controls.Add(this.SearchSapFiles);
-            this.WizardPage1.Controls.Add(this.SearchFolder);
             this.WizardPage1.Controls.Add(this.label1);
             this.WizardPage1.Location = new System.Drawing.Point(12, 13);
             this.WizardPage1.Name = "WizardPage1";
@@ -269,25 +269,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchResultList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            ımageListViewColumnHeader1.DisplayIndex = 0;
-            ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Ad";
-            ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
-            ımageListViewColumnHeader1.Width = 70;
-            ımageListViewColumnHeader2.DisplayIndex = 1;
-            ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Text = "Klasör";
-            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
-            ımageListViewColumnHeader2.Width = 160;
-            ımageListViewColumnHeader3.DisplayIndex = 2;
-            ımageListViewColumnHeader3.Key = "assoc_files";
-            ımageListViewColumnHeader3.Text = "Boyut";
-            ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.Custom;
-            ımageListViewColumnHeader3.Width = 60;
+            ımageListViewColumnHeader4.DisplayIndex = 0;
+            ımageListViewColumnHeader4.Key = "";
+            ımageListViewColumnHeader4.Text = "Ad";
+            ımageListViewColumnHeader4.Type = Manina.Windows.Forms.ColumnType.Name;
+            ımageListViewColumnHeader4.Width = 70;
+            ımageListViewColumnHeader5.DisplayIndex = 1;
+            ımageListViewColumnHeader5.Key = "";
+            ımageListViewColumnHeader5.Text = "Klasör";
+            ımageListViewColumnHeader5.Type = Manina.Windows.Forms.ColumnType.FilePath;
+            ımageListViewColumnHeader5.Width = 160;
+            ımageListViewColumnHeader6.DisplayIndex = 2;
+            ımageListViewColumnHeader6.Key = "assoc_files";
+            ımageListViewColumnHeader6.Text = "Boyut";
+            ımageListViewColumnHeader6.Type = Manina.Windows.Forms.ColumnType.Custom;
+            ımageListViewColumnHeader6.Width = 60;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
-            ımageListViewColumnHeader1,
-            ımageListViewColumnHeader2,
-            ımageListViewColumnHeader3});
+            ımageListViewColumnHeader4,
+            ımageListViewColumnHeader5,
+            ımageListViewColumnHeader6});
             this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.SearchResultList.Location = new System.Drawing.Point(18, 73);
             this.SearchResultList.Name = "SearchResultList";
@@ -379,9 +379,8 @@
             this.SearchFolder.Location = new System.Drawing.Point(18, 93);
             this.SearchFolder.Name = "SearchFolder";
             this.SearchFolder.Path = "C:\\";
-            this.SearchFolder.Size = new System.Drawing.Size(316, 80);
-            this.SearchFolder.TabIndex = 1;
-            this.SearchFolder.Text = "SearchFolder";
+            this.SearchFolder.Size = new System.Drawing.Size(315, 80);
+            this.SearchFolder.TabIndex = 6;
             this.SearchFolder.Click += new System.EventHandler(this.SearchFolder_Click);
             // 
             // MainForm
@@ -422,7 +421,6 @@
         private System.Windows.Forms.Label Separator;
         private System.Windows.Forms.Panel WizardPage1;
         private System.Windows.Forms.Label label1;
-        private FileSystemLabel SearchFolder;
         private System.Windows.Forms.Panel WizardPage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel WizardPage3;
@@ -443,6 +441,7 @@
         private System.Windows.Forms.Label DeleteFileLabel;
         private System.Windows.Forms.CheckBox UseRecycleBin;
         private System.Windows.Forms.CheckBox DeleteAnalysisFiles;
+        private Manina.Windows.Forms.FileSystemButton SearchFolder;
     }
 }
 
