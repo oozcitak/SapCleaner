@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Manina.Windows.Forms;
@@ -34,6 +35,9 @@ namespace SapCleaner
             var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", "Boyut", 120);
             sizeColumn.Comparer = new SizeColumnComparer();
             SearchResultList.Columns.Add(sizeColumn);
+
+            toolStrip1.Renderer = new ToolStripProfessionalRenderer(new CustomColorTable());
+            ((ToolStripDropDownMenu)SelectFilesByDateButton.DropDown).ShowImageMargin = false;
         }
 
         private class SizeColumnComparer : IComparer<ImageListViewItem>
@@ -240,6 +244,45 @@ namespace SapCleaner
         private void SearchResultList_ItemCheckBoxClick(object sender, ItemEventArgs e)
         {
             NextButton.Enabled = SearchResultList.CheckedItems.Count > 0;
+        }
+
+        private class CustomColorTable : ProfessionalColorTable
+        {
+            private readonly Color backColor = Color.FromArgb(252, 255, 255);
+            private readonly Color foreColor = Color.FromArgb(0, 0, 0);
+            private readonly Color borderColor = Color.FromArgb(153, 153, 153);
+
+            private readonly Color selectedItemBackColor = Color.FromArgb(204, 232, 255);
+            private readonly Color selectedItemBorderColor = Color.FromArgb(153, 209, 255);
+
+            private readonly Color hoveredItemBackColor = Color.FromArgb(229, 243, 255);
+
+            public override Color ToolStripGradientBegin => backColor;
+            public override Color ToolStripGradientMiddle => backColor;
+            public override Color ToolStripGradientEnd => backColor;
+            public override Color ToolStripBorder => backColor;
+
+            public override Color SeparatorDark => backColor;
+            public override Color SeparatorLight => backColor;
+
+            public override Color MenuStripGradientBegin => backColor;
+            public override Color MenuStripGradientEnd => backColor;
+
+            public override Color ImageMarginGradientBegin => backColor;
+            public override Color ImageMarginGradientMiddle => backColor;
+            public override Color ImageMarginGradientEnd => backColor;
+
+            public override Color ToolStripDropDownBackground => backColor;
+
+            public override Color ToolStripPanelGradientBegin => backColor;
+            public override Color ToolStripPanelGradientEnd => backColor;
+
+            public override Color GripDark => backColor;
+            public override Color GripLight => backColor;
+
+            public override Color OverflowButtonGradientBegin => backColor;
+            public override Color OverflowButtonGradientMiddle => backColor;
+            public override Color OverflowButtonGradientEnd => backColor;
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Name", 120, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FolderName, "Folder", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Modified", 100, 2, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader4 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Name", 120, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader5 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FolderName, "Folder", 160, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader6 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Modified", 100, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
@@ -252,7 +252,7 @@
             this.SelectFilesByDateButton});
             this.toolStrip1.Location = new System.Drawing.Point(18, 74);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(319, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
@@ -293,42 +293,42 @@
             // SelectOlderThanOneWeekButton
             // 
             this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
-            this.SelectOlderThanOneWeekButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneWeekButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanOneWeekButton.Text = "Bir Haftadan Eski";
             this.SelectOlderThanOneWeekButton.Click += new System.EventHandler(this.SelectOlderThanOneWeekButton_Click);
             // 
             // SelectOlderThanTwoWeeksButton
             // 
             this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
-            this.SelectOlderThanTwoWeeksButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanTwoWeeksButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanTwoWeeksButton.Text = "İki Haftadan Eski";
             this.SelectOlderThanTwoWeeksButton.Click += new System.EventHandler(this.SelectOlderThanTwoWeeksButton_Click);
             // 
             // SelectOlderThanOneMonthButton
             // 
             this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
-            this.SelectOlderThanOneMonthButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneMonthButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanOneMonthButton.Text = "Bir Aydan Eski";
             this.SelectOlderThanOneMonthButton.Click += new System.EventHandler(this.SelectOlderThanOneMonthButton_Click);
             // 
             // SelectOlderThanThreeMonthsButton
             // 
             this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
-            this.SelectOlderThanThreeMonthsButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanThreeMonthsButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanThreeMonthsButton.Text = "Üç Aydan Eski";
             this.SelectOlderThanThreeMonthsButton.Click += new System.EventHandler(this.SelectOlderThanThreeMonthsButton_Click);
             // 
             // SelectOlderThanSixMonthsButton
             // 
             this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
-            this.SelectOlderThanSixMonthsButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanSixMonthsButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanSixMonthsButton.Text = "Altı Aydan Eski";
             this.SelectOlderThanSixMonthsButton.Click += new System.EventHandler(this.SelectOlderThanSixMonthsButton_Click);
             // 
             // SelectOlderThanOneYearButton
             // 
             this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
-            this.SelectOlderThanOneYearButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneYearButton.Size = new System.Drawing.Size(180, 22);
             this.SelectOlderThanOneYearButton.Text = "Bir Yıldan Eski";
             this.SelectOlderThanOneYearButton.Click += new System.EventHandler(this.SelectOlderThanOneYearButton_Click);
             // 
@@ -361,24 +361,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchResultList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            ımageListViewColumnHeader1.Comparer = null;
-            ımageListViewColumnHeader1.DisplayIndex = 0;
-            ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
-            ımageListViewColumnHeader1.Width = 120;
-            ımageListViewColumnHeader2.Comparer = null;
-            ımageListViewColumnHeader2.DisplayIndex = 1;
-            ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FolderName;
-            ımageListViewColumnHeader2.Width = 160;
-            ımageListViewColumnHeader3.Comparer = null;
-            ımageListViewColumnHeader3.DisplayIndex = 2;
-            ımageListViewColumnHeader3.Key = "";
-            ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.DateModified;
+            ımageListViewColumnHeader4.Comparer = null;
+            ımageListViewColumnHeader4.DisplayIndex = 0;
+            ımageListViewColumnHeader4.Key = "";
+            ımageListViewColumnHeader4.Type = Manina.Windows.Forms.ColumnType.Name;
+            ımageListViewColumnHeader4.Width = 120;
+            ımageListViewColumnHeader5.Comparer = null;
+            ımageListViewColumnHeader5.DisplayIndex = 1;
+            ımageListViewColumnHeader5.Key = "";
+            ımageListViewColumnHeader5.Type = Manina.Windows.Forms.ColumnType.FolderName;
+            ımageListViewColumnHeader5.Width = 160;
+            ımageListViewColumnHeader6.Comparer = null;
+            ımageListViewColumnHeader6.DisplayIndex = 2;
+            ımageListViewColumnHeader6.Key = "";
+            ımageListViewColumnHeader6.Type = Manina.Windows.Forms.ColumnType.DateModified;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
-            ımageListViewColumnHeader1,
-            ımageListViewColumnHeader2,
-            ımageListViewColumnHeader3});
+            ımageListViewColumnHeader4,
+            ımageListViewColumnHeader5,
+            ımageListViewColumnHeader6});
             this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.SearchResultList.Location = new System.Drawing.Point(18, 109);
             this.SearchResultList.Name = "SearchResultList";
