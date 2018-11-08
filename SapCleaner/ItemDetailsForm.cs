@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Manina.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace SapCleaner
         public void SetItem(SearchResult result)
         {
             Text = result.SourceFile.Name;
-            DetailsLabel.Text = string.Format("{0} adet analiz dosyası toplam {1} yer kaplamaktadır.", result.AssociatedFiles.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
+            DetailsLabel.Text = string.Format("{0} adet analiz dosyası toplam {1} yer kaplamaktadır.", result.AssociatedFiles.Count(), Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
 
             foreach (var file in result.AssociatedFiles)
             {

@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace SapCleaner
 {
     public class FileSearcher
     {
+        private readonly string[] extensionsToKeep = new string[] { ".txt", ".dwg", ".doc", ".docx", ".xls", ".xlsx", ".pdf" };
+
         private readonly SearchParameters parameters;
-        private BackgroundWorker Worker = new BackgroundWorker();
+        private readonly BackgroundWorker Worker = new BackgroundWorker();
 
         public event ProgressChangedEventHandler ProgressChanged;
         public event RunWorkerCompletedEventHandler SearchCompleted;
 
-
-        public FileSearcher(IEnumerable<DirectoryInfo> searchFolders, string searchPattern, string[] extensionsToKeep)
+        public FileSearcher(IEnumerable<DirectoryInfo> searchFolders, List<Cleaner> cleaners)
         {
-            parameters = new SearchParameters(searchFolders, searchPattern, extensionsToKeep);
+            parameters = new SearchParameters(searchFolders, cleaners, extensionsToKeep);
 
             Worker.WorkerReportsProgress = true;
             Worker.DoWork += Worker_DoWork;
@@ -26,22 +26,8 @@ namespace SapCleaner
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         }
 
-        public FileSearcher(IEnumerable<string> searchPaths, string searchPattern, string[] extensionsToKeep)
-            : this(searchPaths.Select(p => new DirectoryInfo(p)), searchPattern, extensionsToKeep)
+        public FileSearcher(DirectoryInfo searchFolder, List<Cleaner> cleaners) : this(new DirectoryInfo[] { searchFolder }, cleaners)
         {
-            ;
-        }
-
-        public FileSearcher(DirectoryInfo searchFolder, string searchPattern, string[] extensionsToKeep)
-            : this(new DirectoryInfo[] { searchFolder }, searchPattern, extensionsToKeep)
-        {
-            ;
-        }
-
-        public FileSearcher(string searchPath, string searchPattern, string[] extensionsToKeep)
-            : this(new DirectoryInfo(searchPath), searchPattern, extensionsToKeep)
-        {
-            ;
         }
 
         public void StartSearch()
@@ -68,12 +54,21 @@ namespace SapCleaner
                 var path = folders.Dequeue();
 
                 var currentFolderResults = new List<SearchResult>();
-                foreach (var file in path.GetFilesSafe(parameters.SearchPattern))
+                foreach (var file in path.GetFilesSafe())
                 {
-                    if (IsSapFile(file.FullName))
+                    string ext = file.Extension;
+                    if (parameters.ExtensionsToKeep.Contains(ext))
+                        continue;
+
+                    foreach (Cleaner cleaner in parameters.Cleaners)
                     {
-                        var result = new SearchResult(file, parameters.ExtensionsToKeep);
-                        if (result.AssociatedFiles.Count > 0)
+                        if (!string.IsNullOrEmpty(cleaner.Extension) && string.Compare(ext, ".*", true) != 0 && string.Compare(cleaner.Extension, ext, true) != 0)
+                            continue;
+                        if (!cleaner.CanProcess(file))
+                            continue;
+
+                        var result = new SearchResult(file, cleaner.GetAssociatedFiles(file), cleaner.AssociatedFileSizeTotal);
+                        if (result.AssociatedFiles.Any())
                             currentFolderResults.Add(result);
                     }
                 }
@@ -97,23 +92,6 @@ namespace SapCleaner
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             OnProgressChanged(e);
-        }
-
-        private bool IsSapFile(string filename)
-        {
-            try
-            {
-                using (var file = new FileStream(filename, FileMode.Open))
-                using (var reader = new BinaryReader(file))
-                {
-                    var bytes = reader.ReadBytes(7);
-                    return (Encoding.ASCII.GetString(bytes) == "SAP2000");
-                }
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

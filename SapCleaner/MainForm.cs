@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Manina.Windows.Forms;
 
@@ -25,6 +26,10 @@ namespace SapCleaner
             Size = new System.Drawing.Size(390, 475);
 
             SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
+
+            string path = Properties.Settings.Default.LastPath;
+            if (System.IO.Directory.Exists(path))
+                SearchFolder.Path = path;
         }
 
         private void NextPage()
@@ -51,8 +56,12 @@ namespace SapCleaner
         {
             if (CurrentPage == 1)
             {
-                string[] extensionsToKeep = new string[] { "sdb", "$2k", "s2k", "sbk", "log", "out", "txt", "dwg", "doc", "docx", "xls", "xlsx", "pdf" };
-                FileSearcher searcher = new FileSearcher(new System.IO.DirectoryInfo(SearchFolder.Path), "*.sdb", extensionsToKeep);
+                List<Cleaner> cleaners = new List<Cleaner>();
+                if (SearchSapFiles.Checked) cleaners.Add(new Sap2000Cleaner());
+                if (SearchEtabsFiles.Checked) cleaners.Add(new EtabsCleaner());
+                if (SearchSafeFiles.Checked) cleaners.Add(new SafeCleaner());
+                if (SearchLarsaFiles.Checked) cleaners.Add(new Larsa4DCleaner());
+                FileSearcher searcher = new FileSearcher(new System.IO.DirectoryInfo(SearchFolder.Path), cleaners);
                 searcher.ProgressChanged += Searcher_ProgressChanged;
                 searcher.SearchCompleted += Searcher_SearchCompleted;
 
@@ -110,12 +119,12 @@ namespace SapCleaner
             foreach (var result in e.UserState as List<SearchResult>)
             {
                 ImageListViewItem item = new ImageListViewItem(result.SourceFile.FullName);
-                item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count));
+                item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count()));
                 item.Tag = result;
                 SearchResultList.Items.Add(item);
                 SearchFileLabel.Text = result.SourceFile.Name;
 
-                totalFiles += result.AssociatedFiles.Count;
+                totalFiles += result.AssociatedFiles.Count();
                 totalSize += result.TotalFileSize;
             }
         }
@@ -143,7 +152,10 @@ namespace SapCleaner
             SearchFolderBrowserDialog.SelectedPath = SearchFolder.Path;
             if (SearchFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                SearchFolder.Path = SearchFolderBrowserDialog.SelectedPath;
+                string path = SearchFolderBrowserDialog.SelectedPath;
+                SearchFolder.Path = path;
+                Properties.Settings.Default.LastPath = path;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -186,6 +198,11 @@ namespace SapCleaner
             {
                 ;
             }
+        }
+
+        private void SearchFiles_CheckedChanged(object sender, EventArgs e)
+        {
+            NextButton.Enabled = SearchSapFiles.Checked || SearchEtabsFiles.Checked || SearchSafeFiles.Checked || SearchLarsaFiles.Checked;
         }
     }
 }
