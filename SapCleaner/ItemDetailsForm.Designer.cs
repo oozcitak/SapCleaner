@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 180, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FileSize, "Boyut", 60, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FileSize, "Boyut", 100, 1, true);
             this.CloseButton = new System.Windows.Forms.Button();
             this.AssociatedFileList = new Manina.Windows.Forms.ImageListView();
             this.DetailsLabel = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             // CloseButton
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.Location = new System.Drawing.Point(204, 428);
+            this.CloseButton.Location = new System.Drawing.Point(241, 439);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 2;
@@ -52,16 +52,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AssociatedFileList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            ımageListViewColumnHeader1.Comparer = null;
             ımageListViewColumnHeader1.DisplayIndex = 0;
             ımageListViewColumnHeader1.Key = "";
             ımageListViewColumnHeader1.Text = "Ad";
             ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
             ımageListViewColumnHeader1.Width = 180;
+            ımageListViewColumnHeader2.Comparer = null;
             ımageListViewColumnHeader2.DisplayIndex = 1;
             ımageListViewColumnHeader2.Key = "";
             ımageListViewColumnHeader2.Text = "Boyut";
             ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FileSize;
-            ımageListViewColumnHeader2.Width = 60;
             this.AssociatedFileList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
             ımageListViewColumnHeader1,
             ımageListViewColumnHeader2});
@@ -71,7 +72,7 @@
             this.AssociatedFileList.PersistentCacheDirectory = "";
             this.AssociatedFileList.PersistentCacheSize = ((long)(100));
             this.AssociatedFileList.ShowFileIcons = true;
-            this.AssociatedFileList.Size = new System.Drawing.Size(267, 346);
+            this.AssociatedFileList.Size = new System.Drawing.Size(304, 357);
             this.AssociatedFileList.TabIndex = 3;
             this.AssociatedFileList.UseWIC = true;
             this.AssociatedFileList.View = Manina.Windows.Forms.View.Details;
@@ -82,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DetailsLabel.Location = new System.Drawing.Point(12, 9);
             this.DetailsLabel.Name = "DetailsLabel";
-            this.DetailsLabel.Size = new System.Drawing.Size(267, 40);
+            this.DetailsLabel.Size = new System.Drawing.Size(304, 40);
             this.DetailsLabel.TabIndex = 1;
             this.DetailsLabel.Text = "label1";
             // 
@@ -90,10 +91,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 463);
+            this.ClientSize = new System.Drawing.Size(328, 474);
             this.Controls.Add(this.AssociatedFileList);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.DetailsLabel);
+            this.MinimumSize = new System.Drawing.Size(300, 450);
             this.Name = "ItemDetailsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -23,7 +23,7 @@ namespace SapCleaner
             UpdatePages();
             foreach (var page in Pages)
                 page.SetBounds(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Height - 52);
-            Size = new System.Drawing.Size(390, 475);
+            Size = new System.Drawing.Size(580, 600);
 
             SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
 
@@ -123,7 +123,7 @@ namespace SapCleaner
         private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             SearchFileLabel.Text = "";
-            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak. Silinecek dosyaları seçip ileri düğmesine tıklayın.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
+            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak. Silinecek dosyaları seçip ileri düğmesine tıklayın. Model dosyaları korunacak, analiz sonucu oluşturulmuş olan dosyalar silinecektir.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
             NextPage();
             NextButton.Enabled = false;
@@ -177,7 +177,7 @@ namespace SapCleaner
             }
             else if (CurrentPage == 2)
             {
-                if (MessageBox.Show("Seçili dosyaları silmek istediğinizden emin misiniz?", "Analiz Dosyası Temizleyici", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MessageBox.Show("Seçili model dosyalarına ait analiz dosyalarını silmek istediğinizden emin misiniz?", "Analiz Dosyası Temizleyici", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     NextPage();
             }
             else

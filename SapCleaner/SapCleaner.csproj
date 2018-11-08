@@ -52,8 +52,8 @@
     <Reference Include="FileSystemControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FileSystemControls.1.0.0\lib\net35\FileSystemControls.dll</HintPath>
     </Reference>
-    <Reference Include="ImageListView, Version=13.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageListView.13.1.0\lib\net35\ImageListView.dll</HintPath>
+    <Reference Include="ImageListView, Version=13.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageListView.13.1.1\lib\net35\ImageListView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

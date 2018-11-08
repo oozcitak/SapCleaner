@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 120, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Klasör", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Değiştirme tarihi", 100, 3, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Name", 120, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FolderName, "Folder", 160, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Modified", 100, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
@@ -77,6 +77,8 @@
             // 
             // SearchProgress
             // 
+            this.SearchProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchProgress.Location = new System.Drawing.Point(18, 46);
             this.SearchProgress.Name = "SearchProgress";
             this.SearchProgress.Size = new System.Drawing.Size(316, 24);
@@ -183,6 +185,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 52);
@@ -246,7 +250,7 @@
             this.SelectAllFilesButton,
             this.ClearSelectedFilesButton,
             this.SelectFilesByDateButton});
-            this.toolStrip1.Location = new System.Drawing.Point(18, 52);
+            this.toolStrip1.Location = new System.Drawing.Point(18, 74);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(319, 25);
@@ -347,7 +351,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchResultLabel.Location = new System.Drawing.Point(15, 15);
             this.SearchResultLabel.Name = "SearchResultLabel";
-            this.SearchResultLabel.Size = new System.Drawing.Size(320, 31);
+            this.SearchResultLabel.Size = new System.Drawing.Size(320, 52);
             this.SearchResultLabel.TabIndex = 0;
             this.SearchResultLabel.Text = "#SEARCHRESULT#";
             // 
@@ -360,32 +364,29 @@
             ımageListViewColumnHeader1.Comparer = null;
             ımageListViewColumnHeader1.DisplayIndex = 0;
             ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Ad";
             ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
             ımageListViewColumnHeader1.Width = 120;
             ımageListViewColumnHeader2.Comparer = null;
             ımageListViewColumnHeader2.DisplayIndex = 1;
             ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Text = "Klasör";
-            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
+            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FolderName;
             ımageListViewColumnHeader2.Width = 160;
             ımageListViewColumnHeader3.Comparer = null;
-            ımageListViewColumnHeader3.DisplayIndex = 3;
+            ımageListViewColumnHeader3.DisplayIndex = 2;
             ımageListViewColumnHeader3.Key = "";
-            ımageListViewColumnHeader3.Text = "Değiştirme tarihi";
             ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.DateModified;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
             ımageListViewColumnHeader1,
             ımageListViewColumnHeader2,
             ımageListViewColumnHeader3});
             this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.SearchResultList.Location = new System.Drawing.Point(18, 85);
+            this.SearchResultList.Location = new System.Drawing.Point(18, 109);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
             this.SearchResultList.PersistentCacheSize = ((long)(100));
             this.SearchResultList.ShowCheckBoxes = true;
             this.SearchResultList.ShowFileIcons = true;
-            this.SearchResultList.Size = new System.Drawing.Size(317, 222);
+            this.SearchResultList.Size = new System.Drawing.Size(317, 198);
             this.SearchResultList.TabIndex = 2;
             this.SearchResultList.UseWIC = true;
             this.SearchResultList.View = Manina.Windows.Forms.View.Details;
@@ -428,6 +429,8 @@
             // 
             // DeleteProgress
             // 
+            this.DeleteProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteProgress.Location = new System.Drawing.Point(18, 46);
             this.DeleteProgress.Name = "DeleteProgress";
             this.DeleteProgress.Size = new System.Drawing.Size(316, 24);
