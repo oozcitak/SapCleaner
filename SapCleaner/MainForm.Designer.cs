@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 70, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Klasör", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Custom, "assoc_files", "Boyut", 60, 2, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader4 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 120, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader5 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Klasör", 160, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader6 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Değiştirme tarihi", 100, 3, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
@@ -46,9 +46,17 @@
             this.SearchFileLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.WizardPage3 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.SelectAllFilesButton = new System.Windows.Forms.ToolStripButton();
+            this.ClearSelectedFilesButton = new System.Windows.Forms.ToolStripButton();
+            this.SelectFilesByDateButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.SelectOlderThanOneWeekButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectOlderThanTwoWeeksButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectOlderThanOneMonthButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectOlderThanThreeMonthsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectOlderThanSixMonthsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectOlderThanOneYearButton = new System.Windows.Forms.ToolStripMenuItem();
             this.UseRecycleBin = new System.Windows.Forms.CheckBox();
-            this.DeleteAnalysisFiles = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SearchResultLabel = new System.Windows.Forms.Label();
             this.SearchResultList = new Manina.Windows.Forms.ImageListView();
             this.WizardPage4 = new System.Windows.Forms.Panel();
@@ -62,6 +70,7 @@
             this.WizardPage1.SuspendLayout();
             this.WizardPage2.SuspendLayout();
             this.WizardPage3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.WizardPage4.SuspendLayout();
             this.WizardPage5.SuspendLayout();
             this.SuspendLayout();
@@ -220,9 +229,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WizardPage3.BackColor = System.Drawing.SystemColors.Window;
+            this.WizardPage3.Controls.Add(this.toolStrip1);
             this.WizardPage3.Controls.Add(this.UseRecycleBin);
-            this.WizardPage3.Controls.Add(this.DeleteAnalysisFiles);
-            this.WizardPage3.Controls.Add(this.label3);
             this.WizardPage3.Controls.Add(this.SearchResultLabel);
             this.WizardPage3.Controls.Add(this.SearchResultList);
             this.WizardPage3.Location = new System.Drawing.Point(779, 13);
@@ -230,41 +238,108 @@
             this.WizardPage3.Size = new System.Drawing.Size(353, 352);
             this.WizardPage3.TabIndex = 2;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectAllFilesButton,
+            this.ClearSelectedFilesButton,
+            this.SelectFilesByDateButton});
+            this.toolStrip1.Location = new System.Drawing.Point(18, 52);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(319, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // SelectAllFilesButton
+            // 
+            this.SelectAllFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb;
+            this.SelectAllFilesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SelectAllFilesButton.Name = "SelectAllFilesButton";
+            this.SelectAllFilesButton.Size = new System.Drawing.Size(94, 22);
+            this.SelectAllFilesButton.Text = "Tümünü Seç";
+            this.SelectAllFilesButton.Click += new System.EventHandler(this.SelectAllFilesButton_Click);
+            // 
+            // ClearSelectedFilesButton
+            // 
+            this.ClearSelectedFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb_off;
+            this.ClearSelectedFilesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClearSelectedFilesButton.Name = "ClearSelectedFilesButton";
+            this.ClearSelectedFilesButton.Size = new System.Drawing.Size(105, 22);
+            this.ClearSelectedFilesButton.Text = "Seçimi Temizle";
+            this.ClearSelectedFilesButton.Click += new System.EventHandler(this.ClearSelectedFilesButton_Click);
+            // 
+            // SelectFilesByDateButton
+            // 
+            this.SelectFilesByDateButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectOlderThanOneWeekButton,
+            this.SelectOlderThanTwoWeeksButton,
+            this.SelectOlderThanOneMonthButton,
+            this.SelectOlderThanThreeMonthsButton,
+            this.SelectOlderThanSixMonthsButton,
+            this.SelectOlderThanOneYearButton});
+            this.SelectFilesByDateButton.Image = global::SapCleaner.Properties.Resources.calendar;
+            this.SelectFilesByDateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SelectFilesByDateButton.Name = "SelectFilesByDateButton";
+            this.SelectFilesByDateButton.Size = new System.Drawing.Size(117, 22);
+            this.SelectFilesByDateButton.Text = "Tarihe Göre Seç";
+            // 
+            // SelectOlderThanOneWeekButton
+            // 
+            this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
+            this.SelectOlderThanOneWeekButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneWeekButton.Text = "Bir Haftadan Eski";
+            this.SelectOlderThanOneWeekButton.Click += new System.EventHandler(this.SelectOlderThanOneWeekButton_Click);
+            // 
+            // SelectOlderThanTwoWeeksButton
+            // 
+            this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
+            this.SelectOlderThanTwoWeeksButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanTwoWeeksButton.Text = "İki Haftadan Eski";
+            this.SelectOlderThanTwoWeeksButton.Click += new System.EventHandler(this.SelectOlderThanTwoWeeksButton_Click);
+            // 
+            // SelectOlderThanOneMonthButton
+            // 
+            this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
+            this.SelectOlderThanOneMonthButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneMonthButton.Text = "Bir Aydan Eski";
+            this.SelectOlderThanOneMonthButton.Click += new System.EventHandler(this.SelectOlderThanOneMonthButton_Click);
+            // 
+            // SelectOlderThanThreeMonthsButton
+            // 
+            this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
+            this.SelectOlderThanThreeMonthsButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanThreeMonthsButton.Text = "Üç Aydan Eski";
+            this.SelectOlderThanThreeMonthsButton.Click += new System.EventHandler(this.SelectOlderThanThreeMonthsButton_Click);
+            // 
+            // SelectOlderThanSixMonthsButton
+            // 
+            this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
+            this.SelectOlderThanSixMonthsButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanSixMonthsButton.Text = "Altı Aydan Eski";
+            this.SelectOlderThanSixMonthsButton.Click += new System.EventHandler(this.SelectOlderThanSixMonthsButton_Click);
+            // 
+            // SelectOlderThanOneYearButton
+            // 
+            this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
+            this.SelectOlderThanOneYearButton.Size = new System.Drawing.Size(163, 22);
+            this.SelectOlderThanOneYearButton.Text = "Bir Yıldan Eski";
+            this.SelectOlderThanOneYearButton.Click += new System.EventHandler(this.SelectOlderThanOneYearButton_Click);
+            // 
             // UseRecycleBin
             // 
             this.UseRecycleBin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UseRecycleBin.AutoSize = true;
             this.UseRecycleBin.Checked = true;
             this.UseRecycleBin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UseRecycleBin.Location = new System.Drawing.Point(18, 313);
+            this.UseRecycleBin.Location = new System.Drawing.Point(18, 319);
             this.UseRecycleBin.Name = "UseRecycleBin";
             this.UseRecycleBin.Size = new System.Drawing.Size(166, 17);
             this.UseRecycleBin.TabIndex = 4;
             this.UseRecycleBin.Text = "Geri dönüşüm kutusuna kaldır";
             this.UseRecycleBin.UseVisualStyleBackColor = true;
-            // 
-            // DeleteAnalysisFiles
-            // 
-            this.DeleteAnalysisFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteAnalysisFiles.AutoSize = true;
-            this.DeleteAnalysisFiles.Location = new System.Drawing.Point(18, 290);
-            this.DeleteAnalysisFiles.Name = "DeleteAnalysisFiles";
-            this.DeleteAnalysisFiles.Size = new System.Drawing.Size(118, 17);
-            this.DeleteAnalysisFiles.TabIndex = 3;
-            this.DeleteAnalysisFiles.Text = "Analiz dosyalarını sil";
-            this.DeleteAnalysisFiles.UseVisualStyleBackColor = true;
-            this.DeleteAnalysisFiles.CheckedChanged += new System.EventHandler(this.DeleteAnalysisFiles_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Location = new System.Drawing.Point(15, 252);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 34);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Aşağıdaki seçeneği işaretleyip ileri düğmesine tıklayarak tüm analiz dosyalarını " +
-    "silebilirsiniz.";
             // 
             // SearchResultLabel
             // 
@@ -272,7 +347,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchResultLabel.Location = new System.Drawing.Point(15, 15);
             this.SearchResultLabel.Name = "SearchResultLabel";
-            this.SearchResultLabel.Size = new System.Drawing.Size(320, 43);
+            this.SearchResultLabel.Size = new System.Drawing.Size(320, 31);
             this.SearchResultLabel.TabIndex = 0;
             this.SearchResultLabel.Text = "#SEARCHRESULT#";
             // 
@@ -282,36 +357,39 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchResultList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            ımageListViewColumnHeader1.DisplayIndex = 0;
-            ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Ad";
-            ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
-            ımageListViewColumnHeader1.Width = 70;
-            ımageListViewColumnHeader2.DisplayIndex = 1;
-            ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Text = "Klasör";
-            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
-            ımageListViewColumnHeader2.Width = 160;
-            ımageListViewColumnHeader3.DisplayIndex = 2;
-            ımageListViewColumnHeader3.Key = "assoc_files";
-            ımageListViewColumnHeader3.Text = "Boyut";
-            ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.Custom;
-            ımageListViewColumnHeader3.Width = 60;
+            ımageListViewColumnHeader4.Comparer = null;
+            ımageListViewColumnHeader4.DisplayIndex = 0;
+            ımageListViewColumnHeader4.Key = "";
+            ımageListViewColumnHeader4.Text = "Ad";
+            ımageListViewColumnHeader4.Type = Manina.Windows.Forms.ColumnType.Name;
+            ımageListViewColumnHeader4.Width = 120;
+            ımageListViewColumnHeader5.Comparer = null;
+            ımageListViewColumnHeader5.DisplayIndex = 1;
+            ımageListViewColumnHeader5.Key = "";
+            ımageListViewColumnHeader5.Text = "Klasör";
+            ımageListViewColumnHeader5.Type = Manina.Windows.Forms.ColumnType.FilePath;
+            ımageListViewColumnHeader5.Width = 160;
+            ımageListViewColumnHeader6.Comparer = null;
+            ımageListViewColumnHeader6.DisplayIndex = 3;
+            ımageListViewColumnHeader6.Key = "";
+            ımageListViewColumnHeader6.Text = "Değiştirme tarihi";
+            ımageListViewColumnHeader6.Type = Manina.Windows.Forms.ColumnType.DateModified;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
-            ımageListViewColumnHeader1,
-            ımageListViewColumnHeader2,
-            ımageListViewColumnHeader3});
+            ımageListViewColumnHeader4,
+            ımageListViewColumnHeader5,
+            ımageListViewColumnHeader6});
             this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.SearchResultList.Location = new System.Drawing.Point(18, 73);
+            this.SearchResultList.Location = new System.Drawing.Point(18, 85);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
             this.SearchResultList.PersistentCacheSize = ((long)(100));
             this.SearchResultList.ShowCheckBoxes = true;
             this.SearchResultList.ShowFileIcons = true;
-            this.SearchResultList.Size = new System.Drawing.Size(317, 165);
+            this.SearchResultList.Size = new System.Drawing.Size(317, 222);
             this.SearchResultList.TabIndex = 1;
             this.SearchResultList.UseWIC = true;
             this.SearchResultList.View = Manina.Windows.Forms.View.Details;
+            this.SearchResultList.ItemCheckBoxClick += new Manina.Windows.Forms.ItemCheckBoxClickEventHandler(this.SearchResultList_ItemCheckBoxClick);
             this.SearchResultList.ItemDoubleClick += new Manina.Windows.Forms.ItemDoubleClickEventHandler(this.SearchResultList_ItemDoubleClick);
             // 
             // WizardPage4
@@ -410,6 +488,8 @@
             this.WizardPage2.PerformLayout();
             this.WizardPage3.ResumeLayout(false);
             this.WizardPage3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.WizardPage4.ResumeLayout(false);
             this.WizardPage4.PerformLayout();
             this.WizardPage5.ResumeLayout(false);
@@ -428,7 +508,6 @@
         private System.Windows.Forms.Panel WizardPage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel WizardPage3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label SearchResultLabel;
         private System.Windows.Forms.Panel WizardPage4;
         private System.Windows.Forms.Label label4;
@@ -444,8 +523,17 @@
         private System.Windows.Forms.Label SearchFileLabel;
         private System.Windows.Forms.Label DeleteFileLabel;
         private System.Windows.Forms.CheckBox UseRecycleBin;
-        private System.Windows.Forms.CheckBox DeleteAnalysisFiles;
         private Manina.Windows.Forms.FileSystemButton SearchFolder;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton SelectAllFilesButton;
+        private System.Windows.Forms.ToolStripButton ClearSelectedFilesButton;
+        private System.Windows.Forms.ToolStripDropDownButton SelectFilesByDateButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanOneWeekButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanTwoWeeksButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanOneMonthButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanThreeMonthsButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanSixMonthsButton;
+        private System.Windows.Forms.ToolStripMenuItem SelectOlderThanOneYearButton;
     }
 }
 

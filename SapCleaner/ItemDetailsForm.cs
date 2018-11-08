@@ -7,7 +7,7 @@ namespace SapCleaner
 {
     public partial class ItemDetailsForm : Form
     {
-        public void SetItem(SearchResult result)
+        public void SetItem(FileSearcher.SearchResult result)
         {
             Text = result.SourceFile.Name;
             DetailsLabel.Text = string.Format("{0} adet analiz dosyası toplam {1} yer kaplamaktadır.", result.AssociatedFiles.Count(), Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));

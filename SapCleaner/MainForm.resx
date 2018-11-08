@@ -120,6 +120,9 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Analiz dosyalarının aranacağı klasörü ve analiz dosyaları aranacak programları seçin. İleri düğmesinin tıkladığınızda arama işlemi başlayacaktır. Aranan alt klasör sayısına bağlı olarak bu işlem uzun zaman alabilir.</value>
   </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>218, 17</value>
+  </metadata>
   <metadata name="SearchFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

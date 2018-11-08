@@ -16,6 +16,34 @@ namespace SapCleaner
         public event ProgressChangedEventHandler ProgressChanged;
         public event RunWorkerCompletedEventHandler SearchCompleted;
 
+        public class SearchParameters
+        {
+            public IEnumerable<DirectoryInfo> SearchFolders { get; private set; }
+            public IEnumerable<Cleaner> Cleaners { get; private set; }
+            public HashSet<string> ExtensionsToKeep { get; private set; }
+
+            public SearchParameters(IEnumerable<DirectoryInfo> searchFolders, IEnumerable<Cleaner> cleaners, string[] extensionsToKeep)
+            {
+                SearchFolders = searchFolders;
+                Cleaners = cleaners;
+                ExtensionsToKeep = new HashSet<string>(extensionsToKeep, StringComparer.OrdinalIgnoreCase);
+            }
+        }
+
+        public class SearchResult
+        {
+            public FileInfo SourceFile { get; private set; }
+            public IEnumerable<FileInfo> AssociatedFiles { get; private set; }
+            public long TotalFileSize { get; private set; }
+
+            public SearchResult(FileInfo sourceFile, IEnumerable<FileInfo> associatedFiles, long totalFileSize)
+            {
+                SourceFile = sourceFile;
+                AssociatedFiles = associatedFiles;
+                TotalFileSize = totalFileSize;
+            }
+        }
+
         public FileSearcher(IEnumerable<DirectoryInfo> searchFolders, List<Cleaner> cleaners)
         {
             parameters = new SearchParameters(searchFolders, cleaners, extensionsToKeep);

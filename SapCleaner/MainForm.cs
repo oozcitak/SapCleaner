@@ -30,6 +30,18 @@ namespace SapCleaner
             string path = Properties.Settings.Default.LastPath;
             if (System.IO.Directory.Exists(path))
                 SearchFolder.Path = path;
+
+            var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", "Boyut", 120);
+            sizeColumn.Comparer = new SizeColumnComparer();
+            SearchResultList.Columns.Add(sizeColumn);
+        }
+
+        private class SizeColumnComparer : IComparer<ImageListViewItem>
+        {
+            public int Compare(ImageListViewItem x, ImageListViewItem y)
+            {
+                return ((FileSearcher.SearchResult)x.Tag).TotalFileSize.CompareTo(((FileSearcher.SearchResult)y.Tag).TotalFileSize);
+            }
         }
 
         private void NextPage()
@@ -78,45 +90,24 @@ namespace SapCleaner
             }
             else if (CurrentPage == 3)
             {
+                FileDeleter deleter = new FileDeleter(SearchResultList.CheckedItems.Select(item => (FileSearcher.SearchResult)item.Tag), UseRecycleBin.Checked);
+                deleter.ProgressChanged += Deleter_ProgressChanged;
+                deleter.DeleteCompleted += Deleter_DeleteCompleted;
+
                 DeleteProgress.Minimum = 0;
-                DeleteProgress.Maximum = SearchResultList.Items.Count > 0 ? SearchResultList.Items.Count : 1;
+                DeleteProgress.Maximum = 100;
                 DeleteProgress.Value = 0;
                 DeleteFileLabel.Text = "";
 
                 NextButton.Enabled = false;
-                long deletedFiles = 0;
-                long deletedSize = 0;
-                foreach (ImageListViewItem item in SearchResultList.Items)
-                {
-                    var result = item.Tag as SearchResult;
-                    foreach (var file in result.AssociatedFiles)
-                    {
-                        if (DeleteAnalysisFiles.Checked)
-                        {
-                            deletedFiles++;
-                            deletedSize += file.Length;
-
-                            // Delete file
-                            DeleteFile(file.FullName, UseRecycleBin.Checked);
-                        }
-                    }
-                    DeleteFileLabel.Text = result.SourceFile.Name;
-                    DeleteProgress.Value++;
-                }
-
-                SearchResultList.Items.Clear();
-                DeleteResultLabel.Text = string.Format("{0} dosya silindi. {1} yer kazanıldı.", deletedFiles, Manina.Windows.Forms.Utility.FormatSize(deletedSize));
-                NextButton.Text = "Kapat";
-
-                NextPage();
-                NextButton.Enabled = true;
+                deleter.StartDelete();
             }
         }
 
         private void Searcher_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             SearchProgress.Value = e.ProgressPercentage;
-            foreach (var result in e.UserState as List<SearchResult>)
+            foreach (var result in e.UserState as List<FileSearcher.SearchResult>)
             {
                 ImageListViewItem item = new ImageListViewItem(result.SourceFile.FullName);
                 item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count()));
@@ -132,17 +123,36 @@ namespace SapCleaner
         private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             SearchFileLabel.Text = "";
-            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
+            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak. Silinecek dosyaları seçip ileri düğmesine tıklayın.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
             NextPage();
             NextButton.Enabled = false;
+        }
+
+        private void Deleter_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            DeleteProgress.Value = e.ProgressPercentage;
+            var file = e.UserState as System.IO.FileInfo;
+            DeleteFileLabel.Text = file.Name;
+        }
+
+        private void Deleter_DeleteCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            DeleteFileLabel.Text = "";
+            var result = e.Result as FileDeleter.DeleteResult;
+
+            DeleteResultLabel.Text = string.Format("{0} dosya silindi. {1} yer kazanıldı.", result.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
+
+            NextButton.Text = "Kapat";
+            NextButton.Enabled = true;
+            NextPage();
         }
 
         private void SearchResultList_ItemDoubleClick(object sender, ItemClickEventArgs e)
         {
             using (var detailForm = new ItemDetailsForm())
             {
-                detailForm.SetItem(e.Item.Tag as SearchResult);
+                detailForm.SetItem(e.Item.Tag as FileSearcher.SearchResult);
                 detailForm.ShowDialog();
             }
         }
@@ -165,44 +175,71 @@ namespace SapCleaner
             {
                 Close();
             }
+            else if (CurrentPage == 2)
+            {
+                if (MessageBox.Show("Seçili dosyaları silmek istediğinizden emin misiniz?", "Analiz Dosyası Temizleyici", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    NextPage();
+            }
             else
             {
                 NextPage();
             }
         }
 
-        private void DeleteAnalysisFiles_CheckedChanged(object sender, EventArgs e)
-        {
-            NextButton.Enabled = DeleteAnalysisFiles.Checked;
-        }
-
-        private void DeleteFile(string path, bool sendToRecycleBin)
-        {
-            try
-            {
-                if (sendToRecycleBin)
-                {
-                    var fs = new Shell32.SHFILEOPSTRUCT();
-                    fs.wFunc = Shell32.FileOperationType.FO_DELETE;
-                    fs.pFrom = path + '\0' + '\0';
-                    fs.fFlags = Shell32.FileOperationFlags.FOF_SILENT | Shell32.FileOperationFlags.FOF_NOCONFIRMATION |
-                        Shell32.FileOperationFlags.FOF_NOERRORUI | Shell32.FileOperationFlags.FOF_SILENT;
-                    Shell32.SHFileOperation(ref fs);
-                }
-                else
-                {
-                    System.IO.File.Delete(path);
-                }
-            }
-            catch
-            {
-                ;
-            }
-        }
-
         private void SearchFiles_CheckedChanged(object sender, EventArgs e)
         {
             NextButton.Enabled = SearchSapFiles.Checked || SearchEtabsFiles.Checked || SearchSafeFiles.Checked || SearchLarsaFiles.Checked;
+        }
+
+        private void SelectAllFilesButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.CheckAll();
+        }
+
+        private void ClearSelectedFilesButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+        }
+
+        private void SelectOlderThanOneWeekButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(7));
+        }
+
+        private void SelectOlderThanTwoWeeksButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(14));
+        }
+
+        private void SelectOlderThanOneMonthButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(30));
+        }
+
+        private void SelectOlderThanThreeMonthsButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(90));
+        }
+
+        private void SelectOlderThanSixMonthsButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(180));
+        }
+
+        private void SelectOlderThanOneYearButton_Click(object sender, EventArgs e)
+        {
+            SearchResultList.UncheckAll();
+            SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(365));
+        }
+
+        private void SearchResultList_ItemCheckBoxClick(object sender, ItemEventArgs e)
+        {
+            NextButton.Enabled = SearchResultList.CheckedItems.Count > 0;
         }
     }
 }
