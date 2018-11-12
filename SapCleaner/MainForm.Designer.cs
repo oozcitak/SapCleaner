@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 120, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Konum", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Değiştirme tarihi", 100, 2, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Filename", 120, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Path", 160, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Modified date", 100, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.NextButton = new System.Windows.Forms.Button();
             this.Separator = new System.Windows.Forms.Label();
@@ -77,39 +77,25 @@
             // 
             // SearchProgress
             // 
-            this.SearchProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchProgress.Location = new System.Drawing.Point(18, 46);
+            resources.ApplyResources(this.SearchProgress, "SearchProgress");
             this.SearchProgress.Name = "SearchProgress";
-            this.SearchProgress.Size = new System.Drawing.Size(316, 24);
-            this.SearchProgress.TabIndex = 1;
             // 
             // NextButton
             // 
-            this.NextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NextButton.Location = new System.Drawing.Point(1806, 401);
+            resources.ApplyResources(this.NextButton, "NextButton");
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(75, 23);
-            this.NextButton.TabIndex = 6;
-            this.NextButton.Text = "İleri >";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // Separator
             // 
-            this.Separator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.Separator, "Separator");
             this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Separator.Location = new System.Drawing.Point(2, 385);
             this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(1890, 2);
-            this.Separator.TabIndex = 5;
             // 
             // WizardPage1
             // 
-            this.WizardPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.WizardPage1, "WizardPage1");
             this.WizardPage1.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage1.Controls.Add(this.SearchFolder);
             this.WizardPage1.Controls.Add(this.SearchLarsaFiles);
@@ -117,166 +103,114 @@
             this.WizardPage1.Controls.Add(this.SearchEtabsFiles);
             this.WizardPage1.Controls.Add(this.SearchSapFiles);
             this.WizardPage1.Controls.Add(this.label1);
-            this.WizardPage1.Location = new System.Drawing.Point(12, 13);
             this.WizardPage1.Name = "WizardPage1";
-            this.WizardPage1.Size = new System.Drawing.Size(353, 352);
-            this.WizardPage1.TabIndex = 0;
             // 
             // SearchFolder
             // 
-            this.SearchFolder.Location = new System.Drawing.Point(18, 93);
+            resources.ApplyResources(this.SearchFolder, "SearchFolder");
             this.SearchFolder.Name = "SearchFolder";
             this.SearchFolder.Path = "C:\\";
-            this.SearchFolder.Size = new System.Drawing.Size(315, 80);
-            this.SearchFolder.TabIndex = 1;
             this.SearchFolder.Click += new System.EventHandler(this.SearchFolder_Click);
             // 
             // SearchLarsaFiles
             // 
-            this.SearchLarsaFiles.AutoSize = true;
+            resources.ApplyResources(this.SearchLarsaFiles, "SearchLarsaFiles");
             this.SearchLarsaFiles.Checked = true;
             this.SearchLarsaFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SearchLarsaFiles.Location = new System.Drawing.Point(18, 269);
             this.SearchLarsaFiles.Name = "SearchLarsaFiles";
-            this.SearchLarsaFiles.Size = new System.Drawing.Size(143, 17);
-            this.SearchLarsaFiles.TabIndex = 5;
-            this.SearchLarsaFiles.Text = "Larsa4D Analiz Dosyaları";
             this.SearchLarsaFiles.UseVisualStyleBackColor = true;
             this.SearchLarsaFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchSafeFiles
             // 
-            this.SearchSafeFiles.AutoSize = true;
+            resources.ApplyResources(this.SearchSafeFiles, "SearchSafeFiles");
             this.SearchSafeFiles.Checked = true;
             this.SearchSafeFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SearchSafeFiles.Location = new System.Drawing.Point(18, 246);
             this.SearchSafeFiles.Name = "SearchSafeFiles";
-            this.SearchSafeFiles.Size = new System.Drawing.Size(130, 17);
-            this.SearchSafeFiles.TabIndex = 4;
-            this.SearchSafeFiles.Text = "SAFE Analiz Dosyaları";
             this.SearchSafeFiles.UseVisualStyleBackColor = true;
             this.SearchSafeFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchEtabsFiles
             // 
-            this.SearchEtabsFiles.AutoSize = true;
+            resources.ApplyResources(this.SearchEtabsFiles, "SearchEtabsFiles");
             this.SearchEtabsFiles.Checked = true;
             this.SearchEtabsFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SearchEtabsFiles.Location = new System.Drawing.Point(18, 223);
             this.SearchEtabsFiles.Name = "SearchEtabsFiles";
-            this.SearchEtabsFiles.Size = new System.Drawing.Size(138, 17);
-            this.SearchEtabsFiles.TabIndex = 3;
-            this.SearchEtabsFiles.Text = "ETABS Analiz Dosyaları";
             this.SearchEtabsFiles.UseVisualStyleBackColor = true;
             this.SearchEtabsFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchSapFiles
             // 
-            this.SearchSapFiles.AutoSize = true;
+            resources.ApplyResources(this.SearchSapFiles, "SearchSapFiles");
             this.SearchSapFiles.Checked = true;
             this.SearchSapFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SearchSapFiles.Location = new System.Drawing.Point(18, 200);
             this.SearchSapFiles.Name = "SearchSapFiles";
-            this.SearchSapFiles.Size = new System.Drawing.Size(146, 17);
-            this.SearchSapFiles.TabIndex = 2;
-            this.SearchSapFiles.Text = "Sap2000 Analiz Dosyaları";
             this.SearchSapFiles.UseVisualStyleBackColor = true;
             this.SearchSapFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(15, 15);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
             // 
             // WizardPage2
             // 
-            this.WizardPage2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.WizardPage2, "WizardPage2");
             this.WizardPage2.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage2.Controls.Add(this.SearchFileLabel);
             this.WizardPage2.Controls.Add(this.label2);
             this.WizardPage2.Controls.Add(this.SearchProgress);
-            this.WizardPage2.Location = new System.Drawing.Point(393, 13);
             this.WizardPage2.Name = "WizardPage2";
-            this.WizardPage2.Size = new System.Drawing.Size(353, 352);
-            this.WizardPage2.TabIndex = 1;
             // 
             // SearchFileLabel
             // 
-            this.SearchFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.SearchFileLabel, "SearchFileLabel");
             this.SearchFileLabel.AutoEllipsis = true;
-            this.SearchFileLabel.Location = new System.Drawing.Point(15, 93);
             this.SearchFileLabel.Name = "SearchFileLabel";
-            this.SearchFileLabel.Size = new System.Drawing.Size(319, 46);
-            this.SearchFileLabel.TabIndex = 2;
-            this.SearchFileLabel.Text = "#SEARCHFILE#";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 15);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Analiz dosyaları aranıyor...";
             // 
             // WizardPage3
             // 
-            this.WizardPage3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.WizardPage3, "WizardPage3");
             this.WizardPage3.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage3.Controls.Add(this.toolStrip1);
             this.WizardPage3.Controls.Add(this.UseRecycleBin);
             this.WizardPage3.Controls.Add(this.SearchResultLabel);
             this.WizardPage3.Controls.Add(this.SearchResultList);
-            this.WizardPage3.Location = new System.Drawing.Point(779, 13);
             this.WizardPage3.Name = "WizardPage3";
-            this.WizardPage3.Size = new System.Drawing.Size(353, 352);
-            this.WizardPage3.TabIndex = 2;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SelectAllFilesButton,
             this.ClearSelectedFilesButton,
             this.SelectFilesByDateButton});
-            this.toolStrip1.Location = new System.Drawing.Point(18, 74);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(319, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // SelectAllFilesButton
             // 
+            resources.ApplyResources(this.SelectAllFilesButton, "SelectAllFilesButton");
             this.SelectAllFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb;
-            this.SelectAllFilesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SelectAllFilesButton.Name = "SelectAllFilesButton";
-            this.SelectAllFilesButton.Size = new System.Drawing.Size(94, 22);
-            this.SelectAllFilesButton.Text = "Tümünü Seç";
             this.SelectAllFilesButton.Click += new System.EventHandler(this.SelectAllFilesButton_Click);
             // 
             // ClearSelectedFilesButton
             // 
+            resources.ApplyResources(this.ClearSelectedFilesButton, "ClearSelectedFilesButton");
             this.ClearSelectedFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb_off;
-            this.ClearSelectedFilesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ClearSelectedFilesButton.Name = "ClearSelectedFilesButton";
-            this.ClearSelectedFilesButton.Size = new System.Drawing.Size(105, 22);
-            this.ClearSelectedFilesButton.Text = "Seçimi Temizle";
             this.ClearSelectedFilesButton.Click += new System.EventHandler(this.ClearSelectedFilesButton_Click);
             // 
             // SelectFilesByDateButton
             // 
+            resources.ApplyResources(this.SelectFilesByDateButton, "SelectFilesByDateButton");
             this.SelectFilesByDateButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SelectOlderThanOneWeekButton,
             this.SelectOlderThanTwoWeeksButton,
@@ -285,112 +219,87 @@
             this.SelectOlderThanSixMonthsButton,
             this.SelectOlderThanOneYearButton});
             this.SelectFilesByDateButton.Image = global::SapCleaner.Properties.Resources.calendar;
-            this.SelectFilesByDateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SelectFilesByDateButton.Name = "SelectFilesByDateButton";
-            this.SelectFilesByDateButton.Size = new System.Drawing.Size(117, 22);
-            this.SelectFilesByDateButton.Text = "Tarihe Göre Seç";
             // 
             // SelectOlderThanOneWeekButton
             // 
+            resources.ApplyResources(this.SelectOlderThanOneWeekButton, "SelectOlderThanOneWeekButton");
             this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
-            this.SelectOlderThanOneWeekButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanOneWeekButton.Text = "Bir Haftadan Eski";
             this.SelectOlderThanOneWeekButton.Click += new System.EventHandler(this.SelectOlderThanOneWeekButton_Click);
             // 
             // SelectOlderThanTwoWeeksButton
             // 
+            resources.ApplyResources(this.SelectOlderThanTwoWeeksButton, "SelectOlderThanTwoWeeksButton");
             this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
-            this.SelectOlderThanTwoWeeksButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanTwoWeeksButton.Text = "İki Haftadan Eski";
             this.SelectOlderThanTwoWeeksButton.Click += new System.EventHandler(this.SelectOlderThanTwoWeeksButton_Click);
             // 
             // SelectOlderThanOneMonthButton
             // 
+            resources.ApplyResources(this.SelectOlderThanOneMonthButton, "SelectOlderThanOneMonthButton");
             this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
-            this.SelectOlderThanOneMonthButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanOneMonthButton.Text = "Bir Aydan Eski";
             this.SelectOlderThanOneMonthButton.Click += new System.EventHandler(this.SelectOlderThanOneMonthButton_Click);
             // 
             // SelectOlderThanThreeMonthsButton
             // 
+            resources.ApplyResources(this.SelectOlderThanThreeMonthsButton, "SelectOlderThanThreeMonthsButton");
             this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
-            this.SelectOlderThanThreeMonthsButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanThreeMonthsButton.Text = "Üç Aydan Eski";
             this.SelectOlderThanThreeMonthsButton.Click += new System.EventHandler(this.SelectOlderThanThreeMonthsButton_Click);
             // 
             // SelectOlderThanSixMonthsButton
             // 
+            resources.ApplyResources(this.SelectOlderThanSixMonthsButton, "SelectOlderThanSixMonthsButton");
             this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
-            this.SelectOlderThanSixMonthsButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanSixMonthsButton.Text = "Altı Aydan Eski";
             this.SelectOlderThanSixMonthsButton.Click += new System.EventHandler(this.SelectOlderThanSixMonthsButton_Click);
             // 
             // SelectOlderThanOneYearButton
             // 
+            resources.ApplyResources(this.SelectOlderThanOneYearButton, "SelectOlderThanOneYearButton");
             this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
-            this.SelectOlderThanOneYearButton.Size = new System.Drawing.Size(163, 22);
-            this.SelectOlderThanOneYearButton.Text = "Bir Yıldan Eski";
             this.SelectOlderThanOneYearButton.Click += new System.EventHandler(this.SelectOlderThanOneYearButton_Click);
             // 
             // UseRecycleBin
             // 
-            this.UseRecycleBin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UseRecycleBin.AutoSize = true;
+            resources.ApplyResources(this.UseRecycleBin, "UseRecycleBin");
             this.UseRecycleBin.Checked = true;
             this.UseRecycleBin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UseRecycleBin.Location = new System.Drawing.Point(18, 319);
             this.UseRecycleBin.Name = "UseRecycleBin";
-            this.UseRecycleBin.Size = new System.Drawing.Size(166, 17);
-            this.UseRecycleBin.TabIndex = 3;
-            this.UseRecycleBin.Text = "Geri dönüşüm kutusuna kaldır";
             this.UseRecycleBin.UseVisualStyleBackColor = true;
             // 
             // SearchResultLabel
             // 
-            this.SearchResultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchResultLabel.Location = new System.Drawing.Point(15, 15);
+            resources.ApplyResources(this.SearchResultLabel, "SearchResultLabel");
             this.SearchResultLabel.Name = "SearchResultLabel";
-            this.SearchResultLabel.Size = new System.Drawing.Size(320, 52);
-            this.SearchResultLabel.TabIndex = 0;
-            this.SearchResultLabel.Text = "#SEARCHRESULT#";
             // 
             // SearchResultList
             // 
-            this.SearchResultList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.SearchResultList, "SearchResultList");
             this.SearchResultList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             ımageListViewColumnHeader1.Comparer = null;
             ımageListViewColumnHeader1.DisplayIndex = 0;
             ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Ad";
+            ımageListViewColumnHeader1.Text = "Filename";
             ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
             ımageListViewColumnHeader1.Width = 120;
             ımageListViewColumnHeader2.Comparer = null;
             ımageListViewColumnHeader2.DisplayIndex = 1;
             ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Text = "Konum";
             ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
             ımageListViewColumnHeader2.Width = 160;
             ımageListViewColumnHeader3.Comparer = null;
             ımageListViewColumnHeader3.DisplayIndex = 2;
             ımageListViewColumnHeader3.Key = "";
-            ımageListViewColumnHeader3.Text = "Değiştirme tarihi";
+            ımageListViewColumnHeader3.Text = "Modified date";
             ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.DateModified;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
             ımageListViewColumnHeader1,
             ımageListViewColumnHeader2,
             ımageListViewColumnHeader3});
             this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.SearchResultList.Location = new System.Drawing.Point(18, 109);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
             this.SearchResultList.PersistentCacheSize = ((long)(100));
             this.SearchResultList.ShowCheckBoxes = true;
             this.SearchResultList.ShowFileIcons = true;
-            this.SearchResultList.Size = new System.Drawing.Size(317, 198);
-            this.SearchResultList.TabIndex = 2;
             this.SearchResultList.UseWIC = true;
             this.SearchResultList.View = Manina.Windows.Forms.View.Details;
             this.SearchResultList.ItemCheckBoxClick += new Manina.Windows.Forms.ItemCheckBoxClickEventHandler(this.SearchResultList_ItemCheckBoxClick);
@@ -398,84 +307,55 @@
             // 
             // WizardPage4
             // 
-            this.WizardPage4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.WizardPage4, "WizardPage4");
             this.WizardPage4.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage4.Controls.Add(this.DeleteFileLabel);
             this.WizardPage4.Controls.Add(this.label4);
             this.WizardPage4.Controls.Add(this.DeleteProgress);
-            this.WizardPage4.Location = new System.Drawing.Point(1150, 13);
             this.WizardPage4.Name = "WizardPage4";
-            this.WizardPage4.Size = new System.Drawing.Size(353, 352);
-            this.WizardPage4.TabIndex = 3;
             // 
             // DeleteFileLabel
             // 
-            this.DeleteFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.DeleteFileLabel, "DeleteFileLabel");
             this.DeleteFileLabel.AutoEllipsis = true;
-            this.DeleteFileLabel.Location = new System.Drawing.Point(18, 93);
             this.DeleteFileLabel.Name = "DeleteFileLabel";
-            this.DeleteFileLabel.Size = new System.Drawing.Size(316, 80);
-            this.DeleteFileLabel.TabIndex = 2;
-            this.DeleteFileLabel.Text = "#DELETEFILE#";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 15);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Analiz dosyaları siliniyor...";
             // 
             // DeleteProgress
             // 
-            this.DeleteProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteProgress.Location = new System.Drawing.Point(18, 46);
+            resources.ApplyResources(this.DeleteProgress, "DeleteProgress");
             this.DeleteProgress.Name = "DeleteProgress";
-            this.DeleteProgress.Size = new System.Drawing.Size(316, 24);
-            this.DeleteProgress.TabIndex = 1;
             // 
             // WizardPage5
             // 
-            this.WizardPage5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.WizardPage5, "WizardPage5");
             this.WizardPage5.BackColor = System.Drawing.SystemColors.Window;
             this.WizardPage5.Controls.Add(this.label5);
             this.WizardPage5.Controls.Add(this.DeleteResultLabel);
-            this.WizardPage5.Location = new System.Drawing.Point(1524, 13);
             this.WizardPage5.Name = "WizardPage5";
-            this.WizardPage5.Size = new System.Drawing.Size(353, 352);
-            this.WizardPage5.TabIndex = 4;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 15);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Analiz dosyaları silindi.";
             // 
             // DeleteResultLabel
             // 
-            this.DeleteResultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteResultLabel.Location = new System.Drawing.Point(15, 46);
+            resources.ApplyResources(this.DeleteResultLabel, "DeleteResultLabel");
             this.DeleteResultLabel.Name = "DeleteResultLabel";
-            this.DeleteResultLabel.Size = new System.Drawing.Size(317, 108);
-            this.DeleteResultLabel.TabIndex = 1;
-            this.DeleteResultLabel.Text = "#DELETERESULT#";
+            // 
+            // SearchFolderBrowserDialog
+            // 
+            resources.ApplyResources(this.SearchFolderBrowserDialog, "SearchFolderBrowserDialog");
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1893, 436);
             this.Controls.Add(this.WizardPage3);
             this.Controls.Add(this.WizardPage5);
             this.Controls.Add(this.WizardPage4);
@@ -483,11 +363,8 @@
             this.Controls.Add(this.WizardPage1);
             this.Controls.Add(this.Separator);
             this.Controls.Add(this.NextButton);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(390, 475);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Analiz Dosyası Temizleyici";
             this.WizardPage1.ResumeLayout(false);
             this.WizardPage1.PerformLayout();
             this.WizardPage2.ResumeLayout(false);

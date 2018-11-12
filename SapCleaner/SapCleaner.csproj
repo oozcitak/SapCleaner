@@ -71,8 +71,8 @@
     <Reference Include="FileSystemControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FileSystemControls.1.0.0\lib\net35\FileSystemControls.dll</HintPath>
     </Reference>
-    <Reference Include="ImageListView, Version=13.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageListView.13.1.1\lib\net35\ImageListView.dll</HintPath>
+    <Reference Include="ImageListView, Version=13.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageListView.13.1.2\lib\net35\ImageListView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,6 +90,16 @@
   <ItemGroup>
     <Compile Include="Cleaner.cs" />
     <Compile Include="FileDeleter.cs" />
+    <Compile Include="LocalizedStrings.tr.Designer.cs">
+      <DependentUpon>LocalizedStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LocalizedStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="SafeCleaner.cs" />
     <Compile Include="FileSearcher.cs" />
     <Compile Include="IOExtensions.cs" />
@@ -113,6 +123,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ItemDetailsForm.resx">
       <DependentUpon>ItemDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalizedStrings.tr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizedStrings.tr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalizedStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizedStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.en.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

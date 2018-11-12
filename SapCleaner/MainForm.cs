@@ -23,7 +23,10 @@ namespace SapCleaner
             CurrentPage = 0;
             UpdatePages();
             foreach (var page in Pages)
+            {
                 page.SetBounds(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Height - 52);
+                page.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+            }
             Size = new System.Drawing.Size(580, 600);
 
             SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
@@ -32,7 +35,7 @@ namespace SapCleaner
             if (System.IO.Directory.Exists(path))
                 SearchFolder.Path = path;
 
-            var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", "Boyut", 120);
+            var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", LocalizedStrings.AssociatedFilesColumnName, 120);
             sizeColumn.Comparer = new SizeColumnComparer();
             SearchResultList.Columns.Add(sizeColumn);
 
@@ -114,7 +117,7 @@ namespace SapCleaner
             foreach (var result in e.UserState as List<FileSearcher.SearchResult>)
             {
                 ImageListViewItem item = new ImageListViewItem(result.SourceFile.FullName);
-                item.SubItems.Add("assoc_files", string.Format("{0} ({1} dosya)", Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count()));
+                item.SubItems.Add("assoc_files", string.Format(LocalizedStrings.AssociatedFilesSubItemText, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize), result.AssociatedFiles.Count()));
                 item.Tag = result;
                 SearchResultList.Items.Add(item);
                 SearchFileLabel.Text = result.SourceFile.Name;
@@ -127,7 +130,7 @@ namespace SapCleaner
         private void Searcher_SearchCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             SearchFileLabel.Text = "";
-            SearchResultLabel.Text = string.Format("Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak. Silinecek dosyaları seçip ileri düğmesine tıklayın. Model dosyaları korunacak, analiz sonucu oluşturulmuş olan dosyalar silinecektir.", totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
+            SearchResultLabel.Text = string.Format(LocalizedStrings.SearchResultLabelText, totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
             NextPage();
             NextButton.Enabled = false;
@@ -145,9 +148,9 @@ namespace SapCleaner
             DeleteFileLabel.Text = "";
             var result = e.Result as FileDeleter.DeleteResult;
 
-            DeleteResultLabel.Text = string.Format("{0} dosya silindi. {1} yer kazanıldı.", result.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
+            DeleteResultLabel.Text = string.Format(LocalizedStrings.DeleteResultLabelText, result.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
 
-            NextButton.Text = "Kapat";
+            NextButton.Text = LocalizedStrings.CloseButtonText;
             NextButton.Enabled = true;
             NextPage();
         }
@@ -181,7 +184,7 @@ namespace SapCleaner
             }
             else if (CurrentPage == 2)
             {
-                if (MessageBox.Show("Seçili model dosyalarına ait analiz dosyalarını silmek istediğinizden emin misiniz?", "Analiz Dosyası Temizleyici", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MessageBox.Show(LocalizedStrings.ConfirmDeleteMessage, LocalizedStrings.AppTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     NextPage();
             }
             else

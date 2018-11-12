@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Ad", 180, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FileSize, "Boyut", 100, 1, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Filename", 180, 0, true);
+            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FileSize, "Size", 100, 1, true);
             this.CloseButton = new System.Windows.Forms.Button();
             this.AssociatedFileList = new Manina.Windows.Forms.ImageListView();
             this.DetailsLabel = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 2;
-            this.CloseButton.Text = "Kapat";
+            this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -55,13 +55,12 @@
             ımageListViewColumnHeader1.Comparer = null;
             ımageListViewColumnHeader1.DisplayIndex = 0;
             ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Ad";
+            ımageListViewColumnHeader1.Text = "Filename";
             ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
             ımageListViewColumnHeader1.Width = 180;
             ımageListViewColumnHeader2.Comparer = null;
             ımageListViewColumnHeader2.DisplayIndex = 1;
             ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Text = "Boyut";
             ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FileSize;
             this.AssociatedFileList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
             ımageListViewColumnHeader1,

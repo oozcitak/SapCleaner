@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SearchProgress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="NextButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="NextButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1837, 401</value>
+  </data>
+  <data name="NextButton.Text" xml:space="preserve">
+    <value>Next &gt;</value>
+  </data>
+  <data name="Separator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Separator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1921, 2</value>
+  </data>
+  <data name="WizardPage1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="SearchLarsaFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SearchLarsaFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="SearchLarsaFiles.Text" xml:space="preserve">
+    <value>Larsa4D Analysis Files</value>
+  </data>
+  <data name="SearchSafeFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SearchSafeFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 17</value>
+  </data>
+  <data name="SearchSafeFiles.Text" xml:space="preserve">
+    <value>SAFE Analysis Files</value>
+  </data>
+  <data name="SearchEtabsFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SearchEtabsFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 17</value>
+  </data>
+  <data name="SearchEtabsFiles.Text" xml:space="preserve">
+    <value>ETABS Analysis Files</value>
+  </data>
+  <data name="SearchSapFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SearchSapFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 17</value>
+  </data>
+  <data name="SearchSapFiles.Text" xml:space="preserve">
+    <value>Sap2000 Analysis Files</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Select the folder to start searching for analysis files. Search will commence when you click the next button. This process may take a long time depending on the number of files.</value>
+  </data>
+  <data name="WizardPage2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="SearchFileLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Searching for analysis files...</value>
+  </data>
+  <data name="WizardPage3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="SelectAllFilesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="SelectAllFilesButton.Text" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="ClearSelectedFilesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 22</value>
+  </data>
+  <data name="ClearSelectedFilesButton.Text" xml:space="preserve">
+    <value>Unselect All</value>
+  </data>
+  <data name="SelectOlderThanOneWeekButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanOneWeekButton.Text" xml:space="preserve">
+    <value>Older Than One Week</value>
+  </data>
+  <data name="SelectOlderThanTwoWeeksButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanTwoWeeksButton.Text" xml:space="preserve">
+    <value>Older Than Two Weeks</value>
+  </data>
+  <data name="SelectOlderThanOneMonthButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanOneMonthButton.Text" xml:space="preserve">
+    <value>Older Than One Month</value>
+  </data>
+  <data name="SelectOlderThanThreeMonthsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanThreeMonthsButton.Text" xml:space="preserve">
+    <value>Older Than Three Months</value>
+  </data>
+  <data name="SelectOlderThanSixMonthsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanSixMonthsButton.Text" xml:space="preserve">
+    <value>Older Than Six Months</value>
+  </data>
+  <data name="SelectOlderThanOneYearButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="SelectOlderThanOneYearButton.Text" xml:space="preserve">
+    <value>Older Than One Year</value>
+  </data>
+  <data name="SelectFilesByDateButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 22</value>
+  </data>
+  <data name="SelectFilesByDateButton.Text" xml:space="preserve">
+    <value>Select by Date</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 25</value>
+  </data>
+  <data name="UseRecycleBin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UseRecycleBin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 17</value>
+  </data>
+  <data name="UseRecycleBin.Text" xml:space="preserve">
+    <value>Move to recycle bin</value>
+  </data>
+  <data name="SearchResultLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="WizardPage4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="DeleteFileLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Deleting analysis files...</value>
+  </data>
+  <data name="DeleteProgress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="WizardPage5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Completed deleting analysis files.</value>
+  </data>
+  <data name="DeleteResultLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1924, 436</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHVfEeANFud8EQrz/A0W54wNF
+        uHoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGlfDgSVkyfshd+b/BXnq/wFk
+        3f8ETb39A0W4egAAAAAshthwLYjYpy2H2OstiNj3LYjY9y2I2PctiNj3LYjY9wdMvP9jnfT/GH///wB2
+        +P8Adu7/A2jh/wNFueUAAAAAM47Z59zw+vGn3fT9ntv0/5ba8/+O2PP/htfz/3/U8v8EQ7z/rs3+////
+        /////////////xh/7/8EQrz/AAAAADWU2vfv+v7/oen5/5Hl+P+B4ff/ct72/2Pa9f9U1/T/DFfB/421
+        9v9Nkv//EXf//yGG//9Aiuv/A0S53wAAAAA2mtr58vr9/7Pt+v+k6fn/leb4/4Xi9/923vb/Zdv1/zyb
+        3v84ddL/jbX3/7jW/v9yqPX/LWzL/wRDumwAAAAANqHa+fb8/v/I8vz/ue/7/6zs+v+c6Pn/i+P3/3zg
+        9v9s3Pb/P5ze/xZdxv8EQ7z/GlnB/x10yvsAAAAAAAAAADem2vv+////+P3///b9///1/P//8/z+/9j2
+        /P+U5vj/heP3/3bf9v9o2/X/XNj0/9f0/P81pNr3AAAAAAAAAAA1q9r76Pb7/5TU7/+Izu7/c8Hp/8np
+        9v/y/P7/8/z+//L8/v/w/P7/7/v+/+77/v/+////Nqva9wAAAAAAAAAANqra8/H6/f+U3vX/k9z0/4HV
+        8v9qyu3/bMvq/4XT7/+A0u//etDv/3bP7v9yz+7/6ff7/zSu2vMAAAAAAAAAADWv2vH3/P7/juT4/5He
+        9f+f4PX/rOH2/+/7/v/0/f7/8/z+//H8/v/v+/7/7vv+//r9//k2r9rVAAAAAAAAAAA2s9r5/f7+//7/
+        ///+/v///f7///7////q9/v/a8fk+WvH4/lrx+P5a8fj+XnN5vd0yuXhMrHZVgAAAAAAAAAANLTZ0V7C
+        4ftgw+L7YMPi+2DD4vtfw+L7PLbb3Syy2BYsstgOLLLYDiyy2A4sstgOLLPYDiyz2AQAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA/8EAAP+AAACAAAAAgAAAAIAAAACAAAAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAP//
+        AAD//wAA//8AAA==
+</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analysis File Cleaner</value>
+  </data>
+</root>
