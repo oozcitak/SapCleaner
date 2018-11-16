@@ -121,14 +121,14 @@
   <data name="SearchFolder.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 93</value>
   </data>
+  <data name="&gt;&gt;UseRecycleBin.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;SelectFilesByDateButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SearchResultList.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 109</value>
-  </data>
-  <data name="SearchSapFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 17</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -136,8 +136,8 @@
   <data name="&gt;&gt;UseRecycleBin.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SearchResultList.Parent" xml:space="preserve">
-    <value>WizardPage3</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
@@ -168,7 +168,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SearchResultList.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.ImageListView, ImageListView, Version=13.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.ImageListView, ImageListView, Version=13.1.2.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;Separator.Name" xml:space="preserve">
     <value>Separator</value>
@@ -191,8 +191,8 @@
   <data name="&gt;&gt;SearchResultLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SearchProgress.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;WizardPage2.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="WizardPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>353, 352</value>
@@ -208,10 +208,6 @@
   </data>
   <data name="&gt;&gt;Separator.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="UseRecycleBin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="SearchLarsaFiles.Text" xml:space="preserve">
     <value>Larsa4D Analiz Dosyaları</value>
@@ -231,6 +227,9 @@
   <data name="DeleteFileLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 93</value>
   </data>
+  <data name="&gt;&gt;SearchFolderBrowserDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;SelectOlderThanOneMonthButton.Name" xml:space="preserve">
     <value>SelectOlderThanOneMonthButton</value>
   </data>
@@ -243,6 +242,7 @@
   <data name="&gt;&gt;WizardPage4.Name" xml:space="preserve">
     <value>WizardPage4</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="toolStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -252,14 +252,11 @@
   <data name="SearchSafeFiles.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;NextButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;SelectAllFilesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SearchProgress.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="WizardPage5.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -284,9 +281,6 @@
   </data>
   <data name="SearchProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>316, 24</value>
-  </data>
-  <data name="UseRecycleBin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 319</value>
   </data>
   <data name="SelectOlderThanOneMonthButton.Text" xml:space="preserve">
     <value>Bir Aydan Eski</value>
@@ -336,14 +330,14 @@
   <data name="&gt;&gt;DeleteProgress.Name" xml:space="preserve">
     <value>DeleteProgress</value>
   </data>
+  <data name="&gt;&gt;NextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;SearchLarsaFiles.Name" xml:space="preserve">
     <value>SearchLarsaFiles</value>
   </data>
   <data name="&gt;&gt;UseRecycleBin.Name" xml:space="preserve">
     <value>UseRecycleBin</value>
-  </data>
-  <data name="&gt;&gt;DeleteResultLabel.Parent" xml:space="preserve">
-    <value>WizardPage5</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Analiz dosyaları silindi.</value>
@@ -353,6 +347,9 @@
   </data>
   <data name="SearchSapFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 200</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 74</value>
   </data>
   <data name="&gt;&gt;SearchProgress.Name" xml:space="preserve">
     <value>SearchProgress</value>
@@ -372,9 +369,6 @@
   <data name="WizardPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>779, 13</value>
   </data>
-  <data name="&gt;&gt;DeleteProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Separator.Size" type="System.Drawing.Size, System.Drawing">
     <value>1890, 2</value>
   </data>
@@ -383,9 +377,6 @@
   </data>
   <data name="WizardPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 13</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 13</value>
   </data>
   <data name="NextButton.Text" xml:space="preserve">
     <value>İleri &gt;</value>
@@ -399,9 +390,6 @@
   <data name="NextButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>1806, 401</value>
   </data>
-  <data name="WizardPage5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="SearchSafeFiles.Text" xml:space="preserve">
     <value>SAFE Analiz Dosyaları</value>
   </data>
@@ -410,9 +398,6 @@
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Analiz dosyalarının aranacağı klasörü ve analiz dosyaları aranacak programları seçin. İleri düğmesinin tıkladığınızda arama işlemi başlayacaktır. Aranan alt klasör sayısına bağlı olarak bu işlem uzun zaman alabilir.</value>
   </data>
   <data name="SearchLarsaFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 17</value>
@@ -438,6 +423,9 @@
   <data name="&gt;&gt;SearchSapFiles.Parent" xml:space="preserve">
     <value>WizardPage1</value>
   </data>
+  <data name="&gt;&gt;SearchProgress.Parent" xml:space="preserve">
+    <value>WizardPage2</value>
+  </data>
   <data name="&gt;&gt;WizardPage2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -447,6 +435,9 @@
   <data name="&gt;&gt;WizardPage2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
   <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
     <value>toolStrip1</value>
   </data>
@@ -455,9 +446,6 @@
   </data>
   <data name="SearchProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;WizardPage4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WizardPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>393, 13</value>
@@ -483,11 +471,11 @@
   <data name="&gt;&gt;SearchSafeFiles.Name" xml:space="preserve">
     <value>SearchSafeFiles</value>
   </data>
+  <data name="&gt;&gt;DeleteFileLabel.Parent" xml:space="preserve">
+    <value>WizardPage4</value>
+  </data>
   <data name="&gt;&gt;WizardPage5.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SearchResultLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 15</value>
@@ -498,11 +486,17 @@
   <data name="&gt;&gt;DeleteResultLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="SearchEtabsFiles.Text" xml:space="preserve">
+    <value>ETABS Analiz Dosyaları</value>
+  </data>
   <data name="NextButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 13</value>
+  </data>
+  <data name="&gt;&gt;SearchSapFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeleteProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>316, 24</value>
@@ -519,23 +513,23 @@
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>WizardPage2</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="&gt;&gt;DeleteProgress.Parent" xml:space="preserve">
     <value>WizardPage4</value>
   </data>
-  <data name="&gt;&gt;WizardPage3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;SearchLarsaFiles.Parent" xml:space="preserve">
     <value>WizardPage1</value>
+  </data>
+  <data name="SearchFileLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 93</value>
   </data>
   <data name="SelectAllFilesButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="SearchFileLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>319, 46</value>
-  </data>
-  <data name="ClearSelectedFilesButton.Text" xml:space="preserve">
-    <value>Seçimi Temizle</value>
   </data>
   <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -551,6 +545,9 @@
   </data>
   <data name="&gt;&gt;DeleteFileLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchFileLabel.Name" xml:space="preserve">
+    <value>SearchFileLabel</value>
   </data>
   <data name="&gt;&gt;SearchResultLabel.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -588,14 +585,11 @@
   <data name="SelectOlderThanOneYearButton.Text" xml:space="preserve">
     <value>Bir Yıldan Eski</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analiz Dosyası Temizleyici</value>
   </data>
   <data name="&gt;&gt;SearchResultList.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;SearchEtabsFiles.Name" xml:space="preserve">
-    <value>SearchEtabsFiles</value>
   </data>
   <data name="SelectOlderThanOneWeekButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 22</value>
@@ -639,8 +633,11 @@
   <data name="SelectFilesByDateButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 22</value>
   </data>
-  <data name="&gt;&gt;SearchProgress.Parent" xml:space="preserve">
-    <value>WizardPage2</value>
+  <data name="SearchLarsaFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 269</value>
+  </data>
+  <data name="&gt;&gt;SearchProgress.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="SelectOlderThanTwoWeeksButton.Text" xml:space="preserve">
     <value>İki Haftadan Eski</value>
@@ -666,8 +663,8 @@
   <data name="&gt;&gt;WizardPage5.Name" xml:space="preserve">
     <value>WizardPage5</value>
   </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip1</value>
+  <data name="&gt;&gt;WizardPage3.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="SearchSapFiles.Text" xml:space="preserve">
     <value>Sap2000 Analiz Dosyaları</value>
@@ -678,9 +675,6 @@
   <data name="SearchResultList.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;WizardPage3.Name" xml:space="preserve">
     <value>WizardPage3</value>
   </data>
@@ -690,8 +684,8 @@
   <data name="SearchLarsaFiles.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;SearchFileLabel.Name" xml:space="preserve">
-    <value>SearchFileLabel</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WizardPage1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -702,8 +696,8 @@
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="SelectFilesByDateButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="SearchFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 80</value>
   </data>
   <data name="&gt;&gt;SearchFolder.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -717,23 +711,23 @@
   <data name="SearchSafeFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>
   </data>
-  <data name="SearchResultLabel.Text" xml:space="preserve">
-    <value>#SEARCHRESULT#</value>
+  <data name="&gt;&gt;SearchResultList.Parent" xml:space="preserve">
+    <value>WizardPage3</value>
   </data>
   <data name="&gt;&gt;DeleteResultLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;SearchFolderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;NextButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;WizardPage1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;WizardPage2.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;DeleteResultLabel.Parent" xml:space="preserve">
+    <value>WizardPage5</value>
   </data>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 74</value>
+  <data name="UseRecycleBin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>318, 52</value>
@@ -759,14 +753,17 @@
   <data name="SearchResultLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 52</value>
   </data>
-  <data name="&gt;&gt;SearchSapFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Analiz dosyalarının aranacağı klasörü ve analiz dosyaları aranacak programları seçin. İleri düğmesinin tıkladığınızda arama işlemi başlayacaktır. Aranan alt klasör sayısına bağlı olarak bu işlem uzun zaman alabilir.</value>
   </data>
   <data name="&gt;&gt;WizardPage4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="DeleteResultLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="WizardPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>353, 352</value>
   </data>
   <data name="DeleteFileLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -783,17 +780,20 @@
   <data name="&gt;&gt;SearchSafeFiles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;SelectOlderThanSixMonthsButton.Name" xml:space="preserve">
+    <value>SelectOlderThanSixMonthsButton</value>
+  </data>
   <data name="SearchResultList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 15</value>
   </data>
-  <data name="SearchLarsaFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 269</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="SelectFilesByDateButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="&gt;&gt;DeleteFileLabel.Name" xml:space="preserve">
     <value>DeleteFileLabel</value>
@@ -807,8 +807,8 @@
   <data name="&gt;&gt;Separator.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analiz Dosyası Temizleyici</value>
+  <data name="&gt;&gt;SearchEtabsFiles.Name" xml:space="preserve">
+    <value>SearchEtabsFiles</value>
   </data>
   <data name="SearchLarsaFiles.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -816,8 +816,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1893, 436</value>
   </data>
-  <data name="WizardPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 352</value>
+  <data name="SearchSapFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 17</value>
   </data>
   <data name="&gt;&gt;SearchFolder.Type" xml:space="preserve">
     <value>Manina.Windows.Forms.FileSystemButton, FileSystemControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -825,8 +825,8 @@
   <data name="&gt;&gt;WizardPage5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SearchFileLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 93</value>
+  <data name="ClearSelectedFilesButton.Text" xml:space="preserve">
+    <value>Seçimi Temizle</value>
   </data>
   <data name="&gt;&gt;NextButton.Name" xml:space="preserve">
     <value>NextButton</value>
@@ -834,17 +834,17 @@
   <data name="&gt;&gt;SearchResultLabel.Name" xml:space="preserve">
     <value>SearchResultLabel</value>
   </data>
-  <data name="&gt;&gt;SelectAllFilesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;DeleteProgress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DeleteResultLabel.Name" xml:space="preserve">
     <value>DeleteResultLabel</value>
   </data>
-  <data name="SearchFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 80</value>
+  <data name="SearchResultLabel.Text" xml:space="preserve">
+    <value>#SEARCHRESULT#</value>
   </data>
-  <data name="&gt;&gt;NextButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="WizardPage5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="DeleteFileLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>316, 80</value>
@@ -867,8 +867,8 @@
   <data name="SearchResultList.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 198</value>
   </data>
-  <data name="&gt;&gt;DeleteFileLabel.Parent" xml:space="preserve">
-    <value>WizardPage4</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 13</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -879,8 +879,8 @@
   <data name="&gt;&gt;ClearSelectedFilesButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;UseRecycleBin.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;WizardPage4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeleteResultLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -888,8 +888,8 @@
   <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
     <value>WizardPage3</value>
   </data>
-  <data name="SearchEtabsFiles.Text" xml:space="preserve">
-    <value>ETABS Analiz Dosyaları</value>
+  <data name="UseRecycleBin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 319</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>WizardPage5</value>
@@ -900,8 +900,8 @@
   <data name="&gt;&gt;WizardPage4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;SelectOlderThanSixMonthsButton.Name" xml:space="preserve">
-    <value>SelectOlderThanSixMonthsButton</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>WizardPage4</value>
@@ -930,8 +930,8 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>390, 475</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
+  <metadata name="SearchFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>218, 17</value>
@@ -939,7 +939,7 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SearchFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
   </metadata>
 </root>

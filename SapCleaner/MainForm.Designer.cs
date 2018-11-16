@@ -273,28 +273,25 @@
             // SearchResultList
             // 
             resources.ApplyResources(this.SearchResultList, "SearchResultList");
-            this.SearchResultList.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             ımageListViewColumnHeader1.Comparer = null;
             ımageListViewColumnHeader1.DisplayIndex = 0;
             ımageListViewColumnHeader1.Key = "";
-            ımageListViewColumnHeader1.Text = "Filename";
+            resources.ApplyResources(ımageListViewColumnHeader1, "ımageListViewColumnHeader1");
             ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
-            ımageListViewColumnHeader1.Width = 120;
             ımageListViewColumnHeader2.Comparer = null;
             ımageListViewColumnHeader2.DisplayIndex = 1;
             ımageListViewColumnHeader2.Key = "";
             ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
-            ımageListViewColumnHeader2.Width = 160;
+            resources.ApplyResources(ımageListViewColumnHeader2, "ımageListViewColumnHeader2");
             ımageListViewColumnHeader3.Comparer = null;
             ımageListViewColumnHeader3.DisplayIndex = 2;
             ımageListViewColumnHeader3.Key = "";
-            ımageListViewColumnHeader3.Text = "Modified date";
+            resources.ApplyResources(ımageListViewColumnHeader3, "ımageListViewColumnHeader3");
             ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.DateModified;
             this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
             ımageListViewColumnHeader1,
             ımageListViewColumnHeader2,
             ımageListViewColumnHeader3});
-            this.SearchResultList.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
             this.SearchResultList.PersistentCacheSize = ((long)(100));
