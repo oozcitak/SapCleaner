@@ -9,9 +9,6 @@ namespace SapCleaner
 {
     public partial class MainForm : Form
     {
-        private Panel[] Pages { get; set; }
-        private int CurrentPage { get; set; }
-
         private long totalFiles = 0;
         private long totalSize = 0;
 
@@ -19,22 +16,19 @@ namespace SapCleaner
         {
             InitializeComponent();
 
-            Pages = new Panel[] { WizardPage1, WizardPage2, WizardPage3, WizardPage4, WizardPage5 };
-            CurrentPage = 0;
-            UpdatePages();
-            foreach (var page in Pages)
-            {
-                page.SetBounds(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Height - 52);
-                page.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-            }
-            Size = new System.Drawing.Size(580, 600);
-
             SearchResultList.SetRenderer(new Manina.Windows.Forms.ImageListViewRenderers.ThemeRenderer());
 
             string path = Properties.Settings.Default.LastPath;
             if (System.IO.Directory.Exists(path))
                 SearchFolder.Path = path;
 
+            wizardControl1.BackButtonText = LocalizedStrings.BackButtonText;
+            wizardControl1.NextButtonText = LocalizedStrings.NextButtonText;
+            wizardControl1.CloseButtonText = LocalizedStrings.CloseButtonText;
+
+            SearchResultList.Columns.Add(ColumnType.Name);
+            SearchResultList.Columns.Add(ColumnType.FolderName);
+            SearchResultList.Columns.Add(ColumnType.DateModified);
             var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", LocalizedStrings.AssociatedFilesColumnName, 120);
             sizeColumn.Comparer = new SizeColumnComparer();
             SearchResultList.Columns.Add(sizeColumn);
@@ -51,29 +45,40 @@ namespace SapCleaner
             }
         }
 
-        private void NextPage()
-        {
-            CurrentPage++;
-            CurrentPage = Math.Max(0, Math.Min(Pages.Length - 1, CurrentPage));
-            UpdatePages();
-            ProcessPage();
-        }
 
-        private void UpdatePages()
+        private void wizardControl1_PageChanging(object sender, WizardControl.PageChangingEventArgs e)
         {
-            int i = 0;
-            foreach (var page in Pages)
+            if (e.NewPage == WizardPage2 && e.CurrentPage == WizardPage3)
+                e.NewPage = WizardPage1;
+            else if (e.NewPage == WizardPage4 && e.CurrentPage == WizardPage5)
+                e.NewPage = WizardPage3;
+            else if (e.CurrentPage == WizardPage1 && e.NewPage == WizardPage2)
             {
-                page.Visible = (i == CurrentPage);
-                i++;
+                bool check = SearchSapFiles.Checked || SearchEtabsFiles.Checked || SearchSafeFiles.Checked || SearchLarsaFiles.Checked;
+                if (!check)
+                {
+                    MessageBox.Show(LocalizedStrings.SelectAnalysisFilesMessage, LocalizedStrings.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Cancel = true;
+                }
             }
-
-            NextButton.Enabled = true;
+            else if (e.CurrentPage == WizardPage3 && e.NewPage == WizardPage4)
+            {
+                bool check = (SearchResultList.CheckedItems.Count > 0);
+                if (!check)
+                {
+                    MessageBox.Show(LocalizedStrings.SelectDeleteFilesMessage, LocalizedStrings.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    e.Cancel = !(MessageBox.Show(LocalizedStrings.ConfirmDeleteMessage, LocalizedStrings.AppTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes);
+                }
+            }
         }
 
-        private void ProcessPage()
+        private void wizardControl1_PageShown(object sender, WizardControl.PageEventArgs e)
         {
-            if (CurrentPage == 1)
+            if (e.Page == WizardPage2)
             {
                 List<Cleaner> cleaners = new List<Cleaner>();
                 if (SearchSapFiles.Checked) cleaners.Add(new Sap2000Cleaner());
@@ -90,12 +95,16 @@ namespace SapCleaner
                 SearchResultList.Items.Clear();
                 SearchFileLabel.Text = "";
 
-                NextButton.Enabled = false;
                 totalFiles = 0;
                 totalSize = 0;
+
+                wizardControl1.NextButtonEnabled = false;
+                wizardControl1.BackButtonEnabled = false;
+                wizardControl1.CloseButtonEnabled = false;
+
                 searcher.StartSearch();
             }
-            else if (CurrentPage == 3)
+            else if (e.Page == WizardPage4)
             {
                 FileDeleter deleter = new FileDeleter(SearchResultList.CheckedItems.Select(item => (FileSearcher.SearchResult)item.Tag), UseRecycleBin.Checked);
                 deleter.ProgressChanged += Deleter_ProgressChanged;
@@ -106,7 +115,10 @@ namespace SapCleaner
                 DeleteProgress.Value = 0;
                 DeleteFileLabel.Text = "";
 
-                NextButton.Enabled = false;
+                wizardControl1.NextButtonEnabled = false;
+                wizardControl1.BackButtonEnabled = false;
+                wizardControl1.CloseButtonEnabled = false;
+
                 deleter.StartDelete();
             }
         }
@@ -132,8 +144,10 @@ namespace SapCleaner
             SearchFileLabel.Text = "";
             SearchResultLabel.Text = string.Format(LocalizedStrings.SearchResultLabelText, totalFiles, Manina.Windows.Forms.Utility.FormatSize(totalSize));
 
-            NextPage();
-            NextButton.Enabled = false;
+            wizardControl1.GoNext();
+            wizardControl1.NextButtonEnabled = true;
+            wizardControl1.BackButtonEnabled = true;
+            wizardControl1.CloseButtonEnabled = true;
         }
 
         private void Deleter_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -150,9 +164,12 @@ namespace SapCleaner
 
             DeleteResultLabel.Text = string.Format(LocalizedStrings.DeleteResultLabelText, result.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
 
-            NextButton.Text = LocalizedStrings.CloseButtonText;
-            NextButton.Enabled = true;
-            NextPage();
+            wizardControl1.GoNext();
+            wizardControl1.NextButtonEnabled = true;
+            wizardControl1.BackButtonEnabled = true;
+            wizardControl1.CloseButtonEnabled = true;
+
+            wizardControl1.NextButtonVisible = false;
         }
 
         private void SearchResultList_ItemDoubleClick(object sender, ItemClickEventArgs e)
@@ -174,28 +191,6 @@ namespace SapCleaner
                 Properties.Settings.Default.LastPath = path;
                 Properties.Settings.Default.Save();
             }
-        }
-
-        private void NextButton_Click(object sender, EventArgs e)
-        {
-            if (CurrentPage == 4)
-            {
-                Close();
-            }
-            else if (CurrentPage == 2)
-            {
-                if (MessageBox.Show(LocalizedStrings.ConfirmDeleteMessage, LocalizedStrings.AppTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                    NextPage();
-            }
-            else
-            {
-                NextPage();
-            }
-        }
-
-        private void SearchFiles_CheckedChanged(object sender, EventArgs e)
-        {
-            NextButton.Enabled = SearchSapFiles.Checked || SearchEtabsFiles.Checked || SearchSafeFiles.Checked || SearchLarsaFiles.Checked;
         }
 
         private void SelectAllFilesButton_Click(object sender, EventArgs e)
@@ -242,11 +237,6 @@ namespace SapCleaner
         {
             SearchResultList.UncheckAll();
             SearchResultList.CheckWhere(item => item.DateModified < DateTime.Now - TimeSpan.FromDays(365));
-        }
-
-        private void SearchResultList_ItemCheckBoxClick(object sender, ItemEventArgs e)
-        {
-            NextButton.Enabled = SearchResultList.CheckedItems.Count > 0;
         }
 
         private class CustomColorTable : ProfessionalColorTable

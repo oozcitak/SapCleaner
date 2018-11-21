@@ -126,6 +126,9 @@
   <data name="AssociatedFilesSubItemText" xml:space="preserve">
     <value>{0} ({1} files)</value>
   </data>
+  <data name="BackButtonText" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="CloseButtonText" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -138,7 +141,16 @@
   <data name="DetailsLabelText" xml:space="preserve">
     <value>The model file has {0} analysis result files with a total file size of {1}.</value>
   </data>
+  <data name="NextButtonText" xml:space="preserve">
+    <value>Next</value>
+  </data>
   <data name="SearchResultLabelText" xml:space="preserve">
     <value>{0} files with analysis results were found. When these result files are deleted {1} of hard disk space will be claimed. Select the files to delete and click the next button. Model files will be kept, only the associated analysis result files will be deleted.</value>
+  </data>
+  <data name="SelectAnalysisFilesMessage" xml:space="preserve">
+    <value>Please select at least one type of analysis file to search for.</value>
+  </data>
+  <data name="SelectDeleteFilesMessage" xml:space="preserve">
+    <value>Please select analysis result files to delete.</value>
   </data>
 </root>

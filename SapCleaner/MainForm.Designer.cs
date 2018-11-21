@@ -29,23 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader1 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.Name, "Filename", 120, 0, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader2 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.FilePath, "Path", 160, 1, true);
-            Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader ımageListViewColumnHeader3 = new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader(Manina.Windows.Forms.ColumnType.DateModified, "Modified date", 100, 2, true);
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
-            this.NextButton = new System.Windows.Forms.Button();
-            this.Separator = new System.Windows.Forms.Label();
-            this.WizardPage1 = new System.Windows.Forms.Panel();
             this.SearchFolder = new Manina.Windows.Forms.FileSystemButton();
             this.SearchLarsaFiles = new System.Windows.Forms.CheckBox();
             this.SearchSafeFiles = new System.Windows.Forms.CheckBox();
             this.SearchEtabsFiles = new System.Windows.Forms.CheckBox();
             this.SearchSapFiles = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.WizardPage2 = new System.Windows.Forms.Panel();
             this.SearchFileLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.WizardPage3 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SelectAllFilesButton = new System.Windows.Forms.ToolStripButton();
             this.ClearSelectedFilesButton = new System.Windows.Forms.ToolStripButton();
@@ -59,18 +51,23 @@
             this.UseRecycleBin = new System.Windows.Forms.CheckBox();
             this.SearchResultLabel = new System.Windows.Forms.Label();
             this.SearchResultList = new Manina.Windows.Forms.ImageListView();
-            this.WizardPage4 = new System.Windows.Forms.Panel();
             this.DeleteFileLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DeleteProgress = new System.Windows.Forms.ProgressBar();
-            this.WizardPage5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.DeleteResultLabel = new System.Windows.Forms.Label();
             this.SearchFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.wizardControl1 = new Manina.Windows.Forms.WizardControl();
+            this.WizardPage1 = new Manina.Windows.Forms.WizardPage();
+            this.WizardPage2 = new Manina.Windows.Forms.WizardPage();
+            this.WizardPage3 = new Manina.Windows.Forms.WizardPage();
+            this.WizardPage4 = new Manina.Windows.Forms.WizardPage();
+            this.WizardPage5 = new Manina.Windows.Forms.WizardPage();
+            this.toolStrip1.SuspendLayout();
+            this.wizardControl1.SuspendLayout();
             this.WizardPage1.SuspendLayout();
             this.WizardPage2.SuspendLayout();
             this.WizardPage3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.WizardPage4.SuspendLayout();
             this.WizardPage5.SuspendLayout();
             this.SuspendLayout();
@@ -79,31 +76,6 @@
             // 
             resources.ApplyResources(this.SearchProgress, "SearchProgress");
             this.SearchProgress.Name = "SearchProgress";
-            // 
-            // NextButton
-            // 
-            resources.ApplyResources(this.NextButton, "NextButton");
-            this.NextButton.Name = "NextButton";
-            this.NextButton.UseVisualStyleBackColor = true;
-            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
-            // 
-            // Separator
-            // 
-            resources.ApplyResources(this.Separator, "Separator");
-            this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Separator.Name = "Separator";
-            // 
-            // WizardPage1
-            // 
-            resources.ApplyResources(this.WizardPage1, "WizardPage1");
-            this.WizardPage1.BackColor = System.Drawing.SystemColors.Window;
-            this.WizardPage1.Controls.Add(this.SearchFolder);
-            this.WizardPage1.Controls.Add(this.SearchLarsaFiles);
-            this.WizardPage1.Controls.Add(this.SearchSafeFiles);
-            this.WizardPage1.Controls.Add(this.SearchEtabsFiles);
-            this.WizardPage1.Controls.Add(this.SearchSapFiles);
-            this.WizardPage1.Controls.Add(this.label1);
-            this.WizardPage1.Name = "WizardPage1";
             // 
             // SearchFolder
             // 
@@ -119,7 +91,6 @@
             this.SearchLarsaFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SearchLarsaFiles.Name = "SearchLarsaFiles";
             this.SearchLarsaFiles.UseVisualStyleBackColor = true;
-            this.SearchLarsaFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchSafeFiles
             // 
@@ -128,7 +99,6 @@
             this.SearchSafeFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SearchSafeFiles.Name = "SearchSafeFiles";
             this.SearchSafeFiles.UseVisualStyleBackColor = true;
-            this.SearchSafeFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchEtabsFiles
             // 
@@ -137,7 +107,6 @@
             this.SearchEtabsFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SearchEtabsFiles.Name = "SearchEtabsFiles";
             this.SearchEtabsFiles.UseVisualStyleBackColor = true;
-            this.SearchEtabsFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // SearchSapFiles
             // 
@@ -146,21 +115,11 @@
             this.SearchSapFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SearchSapFiles.Name = "SearchSapFiles";
             this.SearchSapFiles.UseVisualStyleBackColor = true;
-            this.SearchSapFiles.CheckedChanged += new System.EventHandler(this.SearchFiles_CheckedChanged);
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // WizardPage2
-            // 
-            resources.ApplyResources(this.WizardPage2, "WizardPage2");
-            this.WizardPage2.BackColor = System.Drawing.SystemColors.Window;
-            this.WizardPage2.Controls.Add(this.SearchFileLabel);
-            this.WizardPage2.Controls.Add(this.label2);
-            this.WizardPage2.Controls.Add(this.SearchProgress);
-            this.WizardPage2.Name = "WizardPage2";
             // 
             // SearchFileLabel
             // 
@@ -172,16 +131,6 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            // 
-            // WizardPage3
-            // 
-            resources.ApplyResources(this.WizardPage3, "WizardPage3");
-            this.WizardPage3.BackColor = System.Drawing.SystemColors.Window;
-            this.WizardPage3.Controls.Add(this.toolStrip1);
-            this.WizardPage3.Controls.Add(this.UseRecycleBin);
-            this.WizardPage3.Controls.Add(this.SearchResultLabel);
-            this.WizardPage3.Controls.Add(this.SearchResultList);
-            this.WizardPage3.Name = "WizardPage3";
             // 
             // toolStrip1
             // 
@@ -196,21 +145,20 @@
             // 
             // SelectAllFilesButton
             // 
-            resources.ApplyResources(this.SelectAllFilesButton, "SelectAllFilesButton");
             this.SelectAllFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb;
+            resources.ApplyResources(this.SelectAllFilesButton, "SelectAllFilesButton");
             this.SelectAllFilesButton.Name = "SelectAllFilesButton";
             this.SelectAllFilesButton.Click += new System.EventHandler(this.SelectAllFilesButton_Click);
             // 
             // ClearSelectedFilesButton
             // 
-            resources.ApplyResources(this.ClearSelectedFilesButton, "ClearSelectedFilesButton");
             this.ClearSelectedFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb_off;
+            resources.ApplyResources(this.ClearSelectedFilesButton, "ClearSelectedFilesButton");
             this.ClearSelectedFilesButton.Name = "ClearSelectedFilesButton";
             this.ClearSelectedFilesButton.Click += new System.EventHandler(this.ClearSelectedFilesButton_Click);
             // 
             // SelectFilesByDateButton
             // 
-            resources.ApplyResources(this.SelectFilesByDateButton, "SelectFilesByDateButton");
             this.SelectFilesByDateButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SelectOlderThanOneWeekButton,
             this.SelectOlderThanTwoWeeksButton,
@@ -219,42 +167,43 @@
             this.SelectOlderThanSixMonthsButton,
             this.SelectOlderThanOneYearButton});
             this.SelectFilesByDateButton.Image = global::SapCleaner.Properties.Resources.calendar;
+            resources.ApplyResources(this.SelectFilesByDateButton, "SelectFilesByDateButton");
             this.SelectFilesByDateButton.Name = "SelectFilesByDateButton";
             // 
             // SelectOlderThanOneWeekButton
             // 
-            resources.ApplyResources(this.SelectOlderThanOneWeekButton, "SelectOlderThanOneWeekButton");
             this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
+            resources.ApplyResources(this.SelectOlderThanOneWeekButton, "SelectOlderThanOneWeekButton");
             this.SelectOlderThanOneWeekButton.Click += new System.EventHandler(this.SelectOlderThanOneWeekButton_Click);
             // 
             // SelectOlderThanTwoWeeksButton
             // 
-            resources.ApplyResources(this.SelectOlderThanTwoWeeksButton, "SelectOlderThanTwoWeeksButton");
             this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
+            resources.ApplyResources(this.SelectOlderThanTwoWeeksButton, "SelectOlderThanTwoWeeksButton");
             this.SelectOlderThanTwoWeeksButton.Click += new System.EventHandler(this.SelectOlderThanTwoWeeksButton_Click);
             // 
             // SelectOlderThanOneMonthButton
             // 
-            resources.ApplyResources(this.SelectOlderThanOneMonthButton, "SelectOlderThanOneMonthButton");
             this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
+            resources.ApplyResources(this.SelectOlderThanOneMonthButton, "SelectOlderThanOneMonthButton");
             this.SelectOlderThanOneMonthButton.Click += new System.EventHandler(this.SelectOlderThanOneMonthButton_Click);
             // 
             // SelectOlderThanThreeMonthsButton
             // 
-            resources.ApplyResources(this.SelectOlderThanThreeMonthsButton, "SelectOlderThanThreeMonthsButton");
             this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
+            resources.ApplyResources(this.SelectOlderThanThreeMonthsButton, "SelectOlderThanThreeMonthsButton");
             this.SelectOlderThanThreeMonthsButton.Click += new System.EventHandler(this.SelectOlderThanThreeMonthsButton_Click);
             // 
             // SelectOlderThanSixMonthsButton
             // 
-            resources.ApplyResources(this.SelectOlderThanSixMonthsButton, "SelectOlderThanSixMonthsButton");
             this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
+            resources.ApplyResources(this.SelectOlderThanSixMonthsButton, "SelectOlderThanSixMonthsButton");
             this.SelectOlderThanSixMonthsButton.Click += new System.EventHandler(this.SelectOlderThanSixMonthsButton_Click);
             // 
             // SelectOlderThanOneYearButton
             // 
-            resources.ApplyResources(this.SelectOlderThanOneYearButton, "SelectOlderThanOneYearButton");
             this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
+            resources.ApplyResources(this.SelectOlderThanOneYearButton, "SelectOlderThanOneYearButton");
             this.SelectOlderThanOneYearButton.Click += new System.EventHandler(this.SelectOlderThanOneYearButton_Click);
             // 
             // UseRecycleBin
@@ -273,25 +222,6 @@
             // SearchResultList
             // 
             resources.ApplyResources(this.SearchResultList, "SearchResultList");
-            ımageListViewColumnHeader1.Comparer = null;
-            ımageListViewColumnHeader1.DisplayIndex = 0;
-            ımageListViewColumnHeader1.Key = "";
-            resources.ApplyResources(ımageListViewColumnHeader1, "ımageListViewColumnHeader1");
-            ımageListViewColumnHeader1.Type = Manina.Windows.Forms.ColumnType.Name;
-            ımageListViewColumnHeader2.Comparer = null;
-            ımageListViewColumnHeader2.DisplayIndex = 1;
-            ımageListViewColumnHeader2.Key = "";
-            ımageListViewColumnHeader2.Type = Manina.Windows.Forms.ColumnType.FilePath;
-            resources.ApplyResources(ımageListViewColumnHeader2, "ımageListViewColumnHeader2");
-            ımageListViewColumnHeader3.Comparer = null;
-            ımageListViewColumnHeader3.DisplayIndex = 2;
-            ımageListViewColumnHeader3.Key = "";
-            resources.ApplyResources(ımageListViewColumnHeader3, "ımageListViewColumnHeader3");
-            ımageListViewColumnHeader3.Type = Manina.Windows.Forms.ColumnType.DateModified;
-            this.SearchResultList.Columns.AddRange(new Manina.Windows.Forms.ImageListView.ImageListViewColumnHeader[] {
-            ımageListViewColumnHeader1,
-            ımageListViewColumnHeader2,
-            ımageListViewColumnHeader3});
             this.SearchResultList.Name = "SearchResultList";
             this.SearchResultList.PersistentCacheDirectory = "";
             this.SearchResultList.PersistentCacheSize = ((long)(100));
@@ -299,17 +229,7 @@
             this.SearchResultList.ShowFileIcons = true;
             this.SearchResultList.UseWIC = true;
             this.SearchResultList.View = Manina.Windows.Forms.View.Details;
-            this.SearchResultList.ItemCheckBoxClick += new Manina.Windows.Forms.ItemCheckBoxClickEventHandler(this.SearchResultList_ItemCheckBoxClick);
             this.SearchResultList.ItemDoubleClick += new Manina.Windows.Forms.ItemDoubleClickEventHandler(this.SearchResultList_ItemDoubleClick);
-            // 
-            // WizardPage4
-            // 
-            resources.ApplyResources(this.WizardPage4, "WizardPage4");
-            this.WizardPage4.BackColor = System.Drawing.SystemColors.Window;
-            this.WizardPage4.Controls.Add(this.DeleteFileLabel);
-            this.WizardPage4.Controls.Add(this.label4);
-            this.WizardPage4.Controls.Add(this.DeleteProgress);
-            this.WizardPage4.Name = "WizardPage4";
             // 
             // DeleteFileLabel
             // 
@@ -327,14 +247,6 @@
             resources.ApplyResources(this.DeleteProgress, "DeleteProgress");
             this.DeleteProgress.Name = "DeleteProgress";
             // 
-            // WizardPage5
-            // 
-            resources.ApplyResources(this.WizardPage5, "WizardPage5");
-            this.WizardPage5.BackColor = System.Drawing.SystemColors.Window;
-            this.WizardPage5.Controls.Add(this.label5);
-            this.WizardPage5.Controls.Add(this.DeleteResultLabel);
-            this.WizardPage5.Name = "WizardPage5";
-            // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
@@ -345,31 +257,72 @@
             resources.ApplyResources(this.DeleteResultLabel, "DeleteResultLabel");
             this.DeleteResultLabel.Name = "DeleteResultLabel";
             // 
-            // SearchFolderBrowserDialog
+            // wizardControl1
             // 
-            resources.ApplyResources(this.SearchFolderBrowserDialog, "SearchFolderBrowserDialog");
+            resources.ApplyResources(this.wizardControl1, "wizardControl1");
+            this.wizardControl1.Name = "wizardControl1";
+            this.wizardControl1.Pages.Add(this.WizardPage1);
+            this.wizardControl1.Pages.Add(this.WizardPage2);
+            this.wizardControl1.Pages.Add(this.WizardPage3);
+            this.wizardControl1.Pages.Add(this.WizardPage4);
+            this.wizardControl1.Pages.Add(this.WizardPage5);
+            this.wizardControl1.PageChanging += new Manina.Windows.Forms.WizardControl.PageChangingEventHandler(this.wizardControl1_PageChanging);
+            this.wizardControl1.PageShown += new Manina.Windows.Forms.WizardControl.PageEventHandler(this.wizardControl1_PageShown);
+            // 
+            // WizardPage1
+            // 
+            this.WizardPage1.Controls.Add(this.SearchFolder);
+            this.WizardPage1.Controls.Add(this.label1);
+            this.WizardPage1.Controls.Add(this.SearchLarsaFiles);
+            this.WizardPage1.Controls.Add(this.SearchSapFiles);
+            this.WizardPage1.Controls.Add(this.SearchSafeFiles);
+            this.WizardPage1.Controls.Add(this.SearchEtabsFiles);
+            this.WizardPage1.Name = "WizardPage1";
+            // 
+            // WizardPage2
+            // 
+            this.WizardPage2.Controls.Add(this.SearchFileLabel);
+            this.WizardPage2.Controls.Add(this.label2);
+            this.WizardPage2.Controls.Add(this.SearchProgress);
+            this.WizardPage2.Name = "WizardPage2";
+            // 
+            // WizardPage3
+            // 
+            this.WizardPage3.Controls.Add(this.toolStrip1);
+            this.WizardPage3.Controls.Add(this.SearchResultLabel);
+            this.WizardPage3.Controls.Add(this.UseRecycleBin);
+            this.WizardPage3.Controls.Add(this.SearchResultList);
+            this.WizardPage3.Name = "WizardPage3";
+            // 
+            // WizardPage4
+            // 
+            this.WizardPage4.Controls.Add(this.DeleteFileLabel);
+            this.WizardPage4.Controls.Add(this.label4);
+            this.WizardPage4.Controls.Add(this.DeleteProgress);
+            this.WizardPage4.Name = "WizardPage4";
+            // 
+            // WizardPage5
+            // 
+            this.WizardPage5.Controls.Add(this.label5);
+            this.WizardPage5.Controls.Add(this.DeleteResultLabel);
+            this.WizardPage5.Name = "WizardPage5";
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.WizardPage3);
-            this.Controls.Add(this.WizardPage5);
-            this.Controls.Add(this.WizardPage4);
-            this.Controls.Add(this.WizardPage2);
-            this.Controls.Add(this.WizardPage1);
-            this.Controls.Add(this.Separator);
-            this.Controls.Add(this.NextButton);
+            this.Controls.Add(this.wizardControl1);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.wizardControl1.ResumeLayout(false);
             this.WizardPage1.ResumeLayout(false);
             this.WizardPage1.PerformLayout();
             this.WizardPage2.ResumeLayout(false);
             this.WizardPage2.PerformLayout();
             this.WizardPage3.ResumeLayout(false);
             this.WizardPage3.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.WizardPage4.ResumeLayout(false);
             this.WizardPage4.PerformLayout();
             this.WizardPage5.ResumeLayout(false);
@@ -381,18 +334,11 @@
         #endregion
         private System.Windows.Forms.ProgressBar SearchProgress;
         private Manina.Windows.Forms.ImageListView SearchResultList;
-        private System.Windows.Forms.Button NextButton;
-        private System.Windows.Forms.Label Separator;
-        private System.Windows.Forms.Panel WizardPage1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel WizardPage2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel WizardPage3;
         private System.Windows.Forms.Label SearchResultLabel;
-        private System.Windows.Forms.Panel WizardPage4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar DeleteProgress;
-        private System.Windows.Forms.Panel WizardPage5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label DeleteResultLabel;
         private System.Windows.Forms.CheckBox SearchLarsaFiles;
@@ -414,6 +360,12 @@
         private System.Windows.Forms.ToolStripMenuItem SelectOlderThanThreeMonthsButton;
         private System.Windows.Forms.ToolStripMenuItem SelectOlderThanSixMonthsButton;
         private System.Windows.Forms.ToolStripMenuItem SelectOlderThanOneYearButton;
+        private Manina.Windows.Forms.WizardControl wizardControl1;
+        private Manina.Windows.Forms.WizardPage WizardPage1;
+        private Manina.Windows.Forms.WizardPage WizardPage2;
+        private Manina.Windows.Forms.WizardPage WizardPage3;
+        private Manina.Windows.Forms.WizardPage WizardPage4;
+        private Manina.Windows.Forms.WizardPage WizardPage5;
     }
 }
 

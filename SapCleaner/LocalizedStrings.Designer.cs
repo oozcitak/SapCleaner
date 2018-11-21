@@ -88,6 +88,15 @@ namespace SapCleaner {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string BackButtonText {
+            get {
+                return ResourceManager.GetString("BackButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string CloseButtonText {
@@ -124,11 +133,38 @@ namespace SapCleaner {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        internal static string NextButtonText {
+            get {
+                return ResourceManager.GetString("NextButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} files with analysis results were found. When these result files are deleted {1} of hard disk space will be claimed. Select the files to delete and click the next button. Model files will be kept, only the associated analysis result files will be deleted..
         /// </summary>
         internal static string SearchResultLabelText {
             get {
                 return ResourceManager.GetString("SearchResultLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one type of analysis file to search for..
+        /// </summary>
+        internal static string SelectAnalysisFilesMessage {
+            get {
+                return ResourceManager.GetString("SelectAnalysisFilesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select analysis result files to delete..
+        /// </summary>
+        internal static string SelectDeleteFilesMessage {
+            get {
+                return ResourceManager.GetString("SelectDeleteFilesMessage", resourceCulture);
             }
         }
     }

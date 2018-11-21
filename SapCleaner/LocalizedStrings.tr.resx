@@ -126,6 +126,9 @@
   <data name="AssociatedFilesSubItemText" xml:space="preserve">
     <value>{0} ({1} dosya)</value>
   </data>
+  <data name="BackButtonText" xml:space="preserve">
+    <value>Geri</value>
+  </data>
   <data name="CloseButtonText" xml:space="preserve">
     <value>Kapat</value>
   </data>
@@ -138,7 +141,16 @@
   <data name="DetailsLabelText" xml:space="preserve">
     <value>{0} adet analiz dosyası toplam {1} yer kaplamaktadır.</value>
   </data>
+  <data name="NextButtonText" xml:space="preserve">
+    <value>İleri</value>
+  </data>
   <data name="SearchResultLabelText" xml:space="preserve">
     <value>Silinebilecek {0} dosya bulundu. Bu dosyalar silindiğinde {1} yer kazanılacak. Silinecek dosyaları seçip ileri düğmesine tıklayın. Model dosyaları korunacak, analiz sonucu oluşturulmuş olan dosyalar silinecektir.</value>
+  </data>
+  <data name="SelectAnalysisFilesMessage" xml:space="preserve">
+    <value>Lütfen aranacak en azından bir analiz dosyası türü seçin.</value>
+  </data>
+  <data name="SelectDeleteFilesMessage" xml:space="preserve">
+    <value>Lütfen silinecek analiz dosyalarını seçin.</value>
   </data>
 </root>
