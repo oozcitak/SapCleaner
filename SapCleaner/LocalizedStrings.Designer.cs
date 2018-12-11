@@ -133,6 +133,42 @@ namespace SapCleaner {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        internal static string FilePathColumnName {
+            get {
+                return ResourceManager.GetString("FilePathColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folder.
+        /// </summary>
+        internal static string FolderColumnName {
+            get {
+                return ResourceManager.GetString("FolderColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified.
+        /// </summary>
+        internal static string ModifiedColumnName {
+            get {
+                return ResourceManager.GetString("ModifiedColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string NameColumnName {
+            get {
+                return ResourceManager.GetString("NameColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         internal static string NextButtonText {
@@ -165,6 +201,15 @@ namespace SapCleaner {
         internal static string SelectDeleteFilesMessage {
             get {
                 return ResourceManager.GetString("SelectDeleteFilesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected {0} models contain {1} analysis files with a total file size of {2}..
+        /// </summary>
+        internal static string SelectionDetails {
+            get {
+                return ResourceManager.GetString("SelectionDetails", resourceCulture);
             }
         }
     }

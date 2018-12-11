@@ -141,6 +141,18 @@
   <data name="DetailsLabelText" xml:space="preserve">
     <value>{0} adet analiz dosyası toplam {1} yer kaplamaktadır.</value>
   </data>
+  <data name="FilePathColumnName" xml:space="preserve">
+    <value>Dosya Yolu</value>
+  </data>
+  <data name="FolderColumnName" xml:space="preserve">
+    <value>Klasör</value>
+  </data>
+  <data name="ModifiedColumnName" xml:space="preserve">
+    <value>Değiştirilme Tarihi</value>
+  </data>
+  <data name="NameColumnName" xml:space="preserve">
+    <value>Ad</value>
+  </data>
   <data name="NextButtonText" xml:space="preserve">
     <value>İleri</value>
   </data>
@@ -152,5 +164,8 @@
   </data>
   <data name="SelectDeleteFilesMessage" xml:space="preserve">
     <value>Lütfen silinecek analiz dosyalarını seçin.</value>
+  </data>
+  <data name="SelectionDetails" xml:space="preserve">
+    <value>Seçili {0} modele ait {1} analiz dosyası toplam {2} yer kaplıyor.</value>
   </data>
 </root>

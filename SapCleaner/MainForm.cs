@@ -26,15 +26,18 @@ namespace SapCleaner
             wizardControl1.NextButtonText = LocalizedStrings.NextButtonText;
             wizardControl1.CloseButtonText = LocalizedStrings.CloseButtonText;
 
-            SearchResultList.Columns.Add(ColumnType.Name);
-            SearchResultList.Columns.Add(ColumnType.FolderName);
-            SearchResultList.Columns.Add(ColumnType.DateModified);
+            SearchResultList.Columns.Add(ColumnType.Name, LocalizedStrings.NameColumnName);
+            SearchResultList.Columns.Add(ColumnType.FolderName, LocalizedStrings.FolderColumnName);
+            SearchResultList.Columns.Add(ColumnType.DateModified, LocalizedStrings.ModifiedColumnName);
             var sizeColumn = new ImageListView.ImageListViewColumnHeader(ColumnType.Custom, "assoc_files", LocalizedStrings.AssociatedFilesColumnName, 120);
             sizeColumn.Comparer = new SizeColumnComparer();
             SearchResultList.Columns.Add(sizeColumn);
+            SearchResultList.Columns.Add(ColumnType.FilePath, LocalizedStrings.FilePathColumnName);
 
             toolStrip1.Renderer = new ToolStripProfessionalRenderer(new CustomColorTable());
             ((ToolStripDropDownMenu)SelectFilesByDateButton.DropDown).ShowImageMargin = false;
+
+            SelectionLabel.Text = "";
         }
 
         private class SizeColumnComparer : IComparer<ImageListViewItem>
@@ -164,12 +167,21 @@ namespace SapCleaner
 
             DeleteResultLabel.Text = string.Format(LocalizedStrings.DeleteResultLabelText, result.Count, Manina.Windows.Forms.Utility.FormatSize(result.TotalFileSize));
 
+            var items = new List<ImageListViewItem>();
+            foreach (var item in SearchResultList.CheckedItems)
+            {
+                items.Add(item);
+            }
+            foreach (var item in items)
+            {
+                SearchResultList.Items.Remove(item);
+            }
+            SelectionLabel.Text = "";
+
             wizardControl1.GoNext();
             wizardControl1.NextButtonEnabled = true;
             wizardControl1.BackButtonEnabled = true;
             wizardControl1.CloseButtonEnabled = true;
-
-            wizardControl1.NextButtonVisible = false;
         }
 
         private void SearchResultList_ItemDoubleClick(object sender, ItemClickEventArgs e)
@@ -276,6 +288,28 @@ namespace SapCleaner
             public override Color OverflowButtonGradientBegin => backColor;
             public override Color OverflowButtonGradientMiddle => backColor;
             public override Color OverflowButtonGradientEnd => backColor;
+        }
+
+        private void SearchResultList_ItemCheckBoxClick(object sender, ItemEventArgs e)
+        {
+            if (SearchResultList.CheckedItems.Count == 0)
+            {
+                SelectionLabel.Text = "";
+            }
+            else
+            {
+                int count = 0;
+                int fileCount = 0;
+                long totalSize = 0;
+                foreach (var item in SearchResultList.CheckedItems)
+                {
+                    count++;
+                    var result = item.Tag as FileSearcher.SearchResult;
+                    fileCount += result.AssociatedFiles.Count();
+                    totalSize += result.TotalFileSize;
+                }
+                SelectionLabel.Text = string.Format(LocalizedStrings.SelectionDetails, count, fileCount, Utility.FormatSize(totalSize));
+            }
         }
     }
 }

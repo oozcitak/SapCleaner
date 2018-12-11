@@ -360,30 +360,6 @@
   <data name="toolStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 74</value>
-  </data>
-  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 25</value>
-  </data>
-  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>WizardPage3</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="SelectAllFilesButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -401,15 +377,6 @@
   </data>
   <data name="ClearSelectedFilesButton.Text" xml:space="preserve">
     <value>Seçimi Temizle</value>
-  </data>
-  <data name="SelectFilesByDateButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="SelectFilesByDateButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="SelectFilesByDateButton.Text" xml:space="preserve">
-    <value>Tarihe Göre Seç</value>
   </data>
   <data name="SelectOlderThanOneWeekButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 22</value>
@@ -447,6 +414,39 @@
   <data name="SelectOlderThanOneYearButton.Text" xml:space="preserve">
     <value>Bir Yıldan Eski</value>
   </data>
+  <data name="SelectFilesByDateButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="SelectFilesByDateButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="SelectFilesByDateButton.Text" xml:space="preserve">
+    <value>Tarihe Göre Seç</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 74</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 25</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>WizardPage3</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="UseRecycleBin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -475,7 +475,7 @@
     <value>WizardPage3</value>
   </data>
   <data name="&gt;&gt;UseRecycleBin.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="SearchResultLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -502,7 +502,7 @@
     <value>WizardPage3</value>
   </data>
   <data name="&gt;&gt;SearchResultLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="SearchResultList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -511,7 +511,7 @@
     <value>12, 109</value>
   </data>
   <data name="SearchResultList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 210</value>
+    <value>417, 189</value>
   </data>
   <data name="SearchResultList.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -520,13 +520,13 @@
     <value>SearchResultList</value>
   </data>
   <data name="&gt;&gt;SearchResultList.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.ImageListView, ImageListView, Version=13.1.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.ImageListView, ImageListView, Version=13.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;SearchResultList.Parent" xml:space="preserve">
     <value>WizardPage3</value>
   </data>
   <data name="&gt;&gt;SearchResultList.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="DeleteFileLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -663,11 +663,17 @@
   <metadata name="SearchFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="WizardPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="WizardPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 367</value>
+  </data>
   <data name="&gt;&gt;WizardPage1.Name" xml:space="preserve">
     <value>WizardPage1</value>
   </data>
   <data name="&gt;&gt;WizardPage1.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WizardPage1.Parent" xml:space="preserve">
     <value>wizardControl1</value>
@@ -675,11 +681,17 @@
   <data name="&gt;&gt;WizardPage1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="WizardPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="WizardPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 367</value>
+  </data>
   <data name="&gt;&gt;WizardPage2.Name" xml:space="preserve">
     <value>WizardPage2</value>
   </data>
   <data name="&gt;&gt;WizardPage2.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WizardPage2.Parent" xml:space="preserve">
     <value>wizardControl1</value>
@@ -687,11 +699,50 @@
   <data name="&gt;&gt;WizardPage2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="SelectionLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="SelectionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SelectionLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SelectionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 308</value>
+  </data>
+  <data name="SelectionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 13</value>
+  </data>
+  <data name="SelectionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="SelectionLabel.Text" xml:space="preserve">
+    <value>#SELECTION#</value>
+  </data>
+  <data name="&gt;&gt;SelectionLabel.Name" xml:space="preserve">
+    <value>SelectionLabel</value>
+  </data>
+  <data name="&gt;&gt;SelectionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SelectionLabel.Parent" xml:space="preserve">
+    <value>WizardPage3</value>
+  </data>
+  <data name="&gt;&gt;SelectionLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WizardPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="WizardPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 367</value>
+  </data>
   <data name="&gt;&gt;WizardPage3.Name" xml:space="preserve">
     <value>WizardPage3</value>
   </data>
   <data name="&gt;&gt;WizardPage3.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WizardPage3.Parent" xml:space="preserve">
     <value>wizardControl1</value>
@@ -699,11 +750,17 @@
   <data name="&gt;&gt;WizardPage3.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="WizardPage4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="WizardPage4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 367</value>
+  </data>
   <data name="&gt;&gt;WizardPage4.Name" xml:space="preserve">
     <value>WizardPage4</value>
   </data>
   <data name="&gt;&gt;WizardPage4.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WizardPage4.Parent" xml:space="preserve">
     <value>wizardControl1</value>
@@ -711,11 +768,17 @@
   <data name="&gt;&gt;WizardPage4.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="WizardPage5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="WizardPage5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 367</value>
+  </data>
   <data name="&gt;&gt;WizardPage5.Name" xml:space="preserve">
     <value>WizardPage5</value>
   </data>
   <data name="&gt;&gt;WizardPage5.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WizardPage5.Parent" xml:space="preserve">
     <value>wizardControl1</value>
@@ -739,103 +802,13 @@
     <value>wizardControl1</value>
   </data>
   <data name="&gt;&gt;wizardControl1.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.WizardControl, WizardControl, Version=1.14.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Manina.Windows.Forms.WizardControl, WizardControl, Version=1.14.2.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;wizardControl1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;wizardControl1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="WizardPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="WizardPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 367</value>
-  </data>
-  <data name="&gt;&gt;WizardPage1.Name" xml:space="preserve">
-    <value>WizardPage1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage1.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;WizardPage1.Parent" xml:space="preserve">
-    <value>wizardControl1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="WizardPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="WizardPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 367</value>
-  </data>
-  <data name="&gt;&gt;WizardPage2.Name" xml:space="preserve">
-    <value>WizardPage2</value>
-  </data>
-  <data name="&gt;&gt;WizardPage2.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;WizardPage2.Parent" xml:space="preserve">
-    <value>wizardControl1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="WizardPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="WizardPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 367</value>
-  </data>
-  <data name="&gt;&gt;WizardPage3.Name" xml:space="preserve">
-    <value>WizardPage3</value>
-  </data>
-  <data name="&gt;&gt;WizardPage3.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;WizardPage3.Parent" xml:space="preserve">
-    <value>wizardControl1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage3.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="WizardPage4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="WizardPage4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 367</value>
-  </data>
-  <data name="&gt;&gt;WizardPage4.Name" xml:space="preserve">
-    <value>WizardPage4</value>
-  </data>
-  <data name="&gt;&gt;WizardPage4.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;WizardPage4.Parent" xml:space="preserve">
-    <value>wizardControl1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage4.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="WizardPage5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="WizardPage5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 367</value>
-  </data>
-  <data name="&gt;&gt;WizardPage5.Name" xml:space="preserve">
-    <value>WizardPage5</value>
-  </data>
-  <data name="&gt;&gt;WizardPage5.Type" xml:space="preserve">
-    <value>Manina.Windows.Forms.Page, PagedControl, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;WizardPage5.Parent" xml:space="preserve">
-    <value>wizardControl1</value>
-  </data>
-  <data name="&gt;&gt;WizardPage5.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

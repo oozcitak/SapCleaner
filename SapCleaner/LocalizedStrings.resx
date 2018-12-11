@@ -141,6 +141,18 @@
   <data name="DetailsLabelText" xml:space="preserve">
     <value>The model file has {0} analysis result files with a total file size of {1}.</value>
   </data>
+  <data name="FilePathColumnName" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="FolderColumnName" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="ModifiedColumnName" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="NameColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="NextButtonText" xml:space="preserve">
     <value>Next</value>
   </data>
@@ -152,5 +164,8 @@
   </data>
   <data name="SelectDeleteFilesMessage" xml:space="preserve">
     <value>Please select analysis result files to delete.</value>
+  </data>
+  <data name="SelectionDetails" xml:space="preserve">
+    <value>Selected {0} models contain {1} analysis files with a total file size of {2}.</value>
   </data>
 </root>

@@ -61,6 +61,7 @@
             this.WizardPage1 = new Manina.Windows.Forms.Page();
             this.WizardPage2 = new Manina.Windows.Forms.Page();
             this.WizardPage3 = new Manina.Windows.Forms.Page();
+            this.SelectionLabel = new System.Windows.Forms.Label();
             this.WizardPage4 = new Manina.Windows.Forms.Page();
             this.WizardPage5 = new Manina.Windows.Forms.Page();
             this.toolStrip1.SuspendLayout();
@@ -229,6 +230,7 @@
             this.SearchResultList.ShowFileIcons = true;
             this.SearchResultList.UseWIC = true;
             this.SearchResultList.View = Manina.Windows.Forms.View.Details;
+            this.SearchResultList.ItemCheckBoxClick += new Manina.Windows.Forms.ItemCheckBoxClickEventHandler(this.SearchResultList_ItemCheckBoxClick);
             this.SearchResultList.ItemDoubleClick += new Manina.Windows.Forms.ItemDoubleClickEventHandler(this.SearchResultList_ItemDoubleClick);
             // 
             // DeleteFileLabel
@@ -290,12 +292,18 @@
             // 
             // WizardPage3
             // 
+            this.WizardPage3.Controls.Add(this.SelectionLabel);
             this.WizardPage3.Controls.Add(this.toolStrip1);
             this.WizardPage3.Controls.Add(this.SearchResultLabel);
             this.WizardPage3.Controls.Add(this.UseRecycleBin);
             this.WizardPage3.Controls.Add(this.SearchResultList);
             resources.ApplyResources(this.WizardPage3, "WizardPage3");
             this.WizardPage3.Name = "WizardPage3";
+            // 
+            // SelectionLabel
+            // 
+            resources.ApplyResources(this.SelectionLabel, "SelectionLabel");
+            this.SelectionLabel.Name = "SelectionLabel";
             // 
             // WizardPage4
             // 
@@ -371,6 +379,7 @@
         private Manina.Windows.Forms.Page WizardPage4;
         private Manina.Windows.Forms.Page WizardPage5;
         private System.Windows.Forms.ProgressBar SearchProgress;
+        private System.Windows.Forms.Label SelectionLabel;
     }
 }
 
