@@ -146,20 +146,21 @@
             // 
             // SelectAllFilesButton
             // 
-            this.SelectAllFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb;
             resources.ApplyResources(this.SelectAllFilesButton, "SelectAllFilesButton");
+            this.SelectAllFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb;
             this.SelectAllFilesButton.Name = "SelectAllFilesButton";
             this.SelectAllFilesButton.Click += new System.EventHandler(this.SelectAllFilesButton_Click);
             // 
             // ClearSelectedFilesButton
             // 
-            this.ClearSelectedFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb_off;
             resources.ApplyResources(this.ClearSelectedFilesButton, "ClearSelectedFilesButton");
+            this.ClearSelectedFilesButton.Image = global::SapCleaner.Properties.Resources.lightbulb_off;
             this.ClearSelectedFilesButton.Name = "ClearSelectedFilesButton";
             this.ClearSelectedFilesButton.Click += new System.EventHandler(this.ClearSelectedFilesButton_Click);
             // 
             // SelectFilesByDateButton
             // 
+            resources.ApplyResources(this.SelectFilesByDateButton, "SelectFilesByDateButton");
             this.SelectFilesByDateButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SelectOlderThanOneWeekButton,
             this.SelectOlderThanTwoWeeksButton,
@@ -168,43 +169,42 @@
             this.SelectOlderThanSixMonthsButton,
             this.SelectOlderThanOneYearButton});
             this.SelectFilesByDateButton.Image = global::SapCleaner.Properties.Resources.calendar;
-            resources.ApplyResources(this.SelectFilesByDateButton, "SelectFilesByDateButton");
             this.SelectFilesByDateButton.Name = "SelectFilesByDateButton";
             // 
             // SelectOlderThanOneWeekButton
             // 
-            this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
             resources.ApplyResources(this.SelectOlderThanOneWeekButton, "SelectOlderThanOneWeekButton");
+            this.SelectOlderThanOneWeekButton.Name = "SelectOlderThanOneWeekButton";
             this.SelectOlderThanOneWeekButton.Click += new System.EventHandler(this.SelectOlderThanOneWeekButton_Click);
             // 
             // SelectOlderThanTwoWeeksButton
             // 
-            this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
             resources.ApplyResources(this.SelectOlderThanTwoWeeksButton, "SelectOlderThanTwoWeeksButton");
+            this.SelectOlderThanTwoWeeksButton.Name = "SelectOlderThanTwoWeeksButton";
             this.SelectOlderThanTwoWeeksButton.Click += new System.EventHandler(this.SelectOlderThanTwoWeeksButton_Click);
             // 
             // SelectOlderThanOneMonthButton
             // 
-            this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
             resources.ApplyResources(this.SelectOlderThanOneMonthButton, "SelectOlderThanOneMonthButton");
+            this.SelectOlderThanOneMonthButton.Name = "SelectOlderThanOneMonthButton";
             this.SelectOlderThanOneMonthButton.Click += new System.EventHandler(this.SelectOlderThanOneMonthButton_Click);
             // 
             // SelectOlderThanThreeMonthsButton
             // 
-            this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
             resources.ApplyResources(this.SelectOlderThanThreeMonthsButton, "SelectOlderThanThreeMonthsButton");
+            this.SelectOlderThanThreeMonthsButton.Name = "SelectOlderThanThreeMonthsButton";
             this.SelectOlderThanThreeMonthsButton.Click += new System.EventHandler(this.SelectOlderThanThreeMonthsButton_Click);
             // 
             // SelectOlderThanSixMonthsButton
             // 
-            this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
             resources.ApplyResources(this.SelectOlderThanSixMonthsButton, "SelectOlderThanSixMonthsButton");
+            this.SelectOlderThanSixMonthsButton.Name = "SelectOlderThanSixMonthsButton";
             this.SelectOlderThanSixMonthsButton.Click += new System.EventHandler(this.SelectOlderThanSixMonthsButton_Click);
             // 
             // SelectOlderThanOneYearButton
             // 
-            this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
             resources.ApplyResources(this.SelectOlderThanOneYearButton, "SelectOlderThanOneYearButton");
+            this.SelectOlderThanOneYearButton.Name = "SelectOlderThanOneYearButton";
             this.SelectOlderThanOneYearButton.Click += new System.EventHandler(this.SelectOlderThanOneYearButton_Click);
             // 
             // UseRecycleBin
@@ -259,45 +259,49 @@
             resources.ApplyResources(this.DeleteResultLabel, "DeleteResultLabel");
             this.DeleteResultLabel.Name = "DeleteResultLabel";
             // 
+            // SearchFolderBrowserDialog
+            // 
+            resources.ApplyResources(this.SearchFolderBrowserDialog, "SearchFolderBrowserDialog");
+            // 
             // wizardControl1
             // 
+            resources.ApplyResources(this.wizardControl1, "wizardControl1");
             this.wizardControl1.Controls.Add(this.WizardPage1);
             this.wizardControl1.Controls.Add(this.WizardPage2);
             this.wizardControl1.Controls.Add(this.WizardPage3);
             this.wizardControl1.Controls.Add(this.WizardPage4);
             this.wizardControl1.Controls.Add(this.WizardPage5);
-            resources.ApplyResources(this.wizardControl1, "wizardControl1");
             this.wizardControl1.Name = "wizardControl1";
             this.wizardControl1.PageChanging += new Manina.Windows.Forms.PagedControl.PageChangingEventHandler(this.wizardControl1_PageChanging);
             this.wizardControl1.PageShown += new Manina.Windows.Forms.PagedControl.PageEventHandler(this.wizardControl1_PageShown);
             // 
             // WizardPage1
             // 
+            resources.ApplyResources(this.WizardPage1, "WizardPage1");
             this.WizardPage1.Controls.Add(this.SearchFolder);
             this.WizardPage1.Controls.Add(this.label1);
             this.WizardPage1.Controls.Add(this.SearchLarsaFiles);
             this.WizardPage1.Controls.Add(this.SearchSapFiles);
             this.WizardPage1.Controls.Add(this.SearchSafeFiles);
             this.WizardPage1.Controls.Add(this.SearchEtabsFiles);
-            resources.ApplyResources(this.WizardPage1, "WizardPage1");
             this.WizardPage1.Name = "WizardPage1";
             // 
             // WizardPage2
             // 
+            resources.ApplyResources(this.WizardPage2, "WizardPage2");
             this.WizardPage2.Controls.Add(this.SearchFileLabel);
             this.WizardPage2.Controls.Add(this.label2);
             this.WizardPage2.Controls.Add(this.SearchProgress);
-            resources.ApplyResources(this.WizardPage2, "WizardPage2");
             this.WizardPage2.Name = "WizardPage2";
             // 
             // WizardPage3
             // 
+            resources.ApplyResources(this.WizardPage3, "WizardPage3");
             this.WizardPage3.Controls.Add(this.SelectionLabel);
             this.WizardPage3.Controls.Add(this.toolStrip1);
             this.WizardPage3.Controls.Add(this.SearchResultLabel);
             this.WizardPage3.Controls.Add(this.UseRecycleBin);
             this.WizardPage3.Controls.Add(this.SearchResultList);
-            resources.ApplyResources(this.WizardPage3, "WizardPage3");
             this.WizardPage3.Name = "WizardPage3";
             // 
             // SelectionLabel
@@ -307,17 +311,17 @@
             // 
             // WizardPage4
             // 
+            resources.ApplyResources(this.WizardPage4, "WizardPage4");
             this.WizardPage4.Controls.Add(this.DeleteFileLabel);
             this.WizardPage4.Controls.Add(this.label4);
             this.WizardPage4.Controls.Add(this.DeleteProgress);
-            resources.ApplyResources(this.WizardPage4, "WizardPage4");
             this.WizardPage4.Name = "WizardPage4";
             // 
             // WizardPage5
             // 
+            resources.ApplyResources(this.WizardPage5, "WizardPage5");
             this.WizardPage5.Controls.Add(this.label5);
             this.WizardPage5.Controls.Add(this.DeleteResultLabel);
-            resources.ApplyResources(this.WizardPage5, "WizardPage5");
             this.WizardPage5.Name = "WizardPage5";
             // 
             // MainForm
