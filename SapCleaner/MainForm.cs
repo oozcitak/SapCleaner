@@ -49,7 +49,7 @@ namespace SapCleaner
         }
 
 
-        private void wizardControl1_PageChanging(object sender, WizardControl.PageChangingEventArgs e)
+        private void wizardControl1_PageChanging(object sender, PageChangingEventArgs e)
         {
             if (e.NewPage == WizardPage2 && e.CurrentPage == WizardPage3)
                 e.NewPage = WizardPage1;
@@ -79,7 +79,7 @@ namespace SapCleaner
             }
         }
 
-        private void wizardControl1_PageShown(object sender, WizardControl.PageEventArgs e)
+        private void wizardControl1_PageShown(object sender, PageEventArgs e)
         {
             if (e.Page == WizardPage2)
             {

@@ -272,8 +272,8 @@
             this.wizardControl1.Controls.Add(this.WizardPage4);
             this.wizardControl1.Controls.Add(this.WizardPage5);
             this.wizardControl1.Name = "wizardControl1";
-            this.wizardControl1.PageChanging += new Manina.Windows.Forms.PagedControl.PageChangingEventHandler(this.wizardControl1_PageChanging);
-            this.wizardControl1.PageShown += new Manina.Windows.Forms.PagedControl.PageEventHandler(this.wizardControl1_PageShown);
+            this.wizardControl1.PageChanging += new System.EventHandler<Manina.Windows.Forms.PageChangingEventArgs>(this.wizardControl1_PageChanging);
+            this.wizardControl1.PageShown += new System.EventHandler<Manina.Windows.Forms.PageEventArgs>(this.wizardControl1_PageShown);
             // 
             // WizardPage1
             // 
@@ -346,6 +346,11 @@
             this.WizardPage5.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void WizardControl1_PageChanging(object sender, Manina.Windows.Forms.PageChangingEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
